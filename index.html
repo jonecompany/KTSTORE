@@ -1,135 +1,249 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>JONEKT | KT 전문 매장</title>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JONEKT | KT 전문 매장 - 기기 비교</title>
+  <meta name="description" content="JONEKT KT 공식 매장 - 갤럭시 / 아이폰 / 플립 비교. 초이스스페셜 요금제 6개월 유지 시 기기값 0원 안내. 전화/카카오 바로 상담.">
+  <meta property="og:title" content="JONEKT · KT 공식 상담 - 기기 비교">
+  <meta property="og:description" content="초이스스페셜 요금제 6개월 유지 + 카드 조건 충족 시 기기값 0원 (예시). 정확한 금액은 상담 필수.">
+  <meta property="og:image" content="https://your-domain.com/og-image.jpg">
+  <link rel="icon" href="/favicon.ico">
   <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
-      background: #f5f6f8;
-      color: #222;
+    :root{
+      --accent:#e60012;
+      --bg:#f5f6f8;
+      --card:#fff;
+      --muted:#666;
+      --shadow: 0 6px 18px rgba(0,0,0,0.06);
     }
-
-    header {
-      background: #e60012;
-      color: white;
-      padding: 18px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-    }
-
-    .today {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 30px;
-    }
-
-    .today h2 {
-      margin-top: 0;
-      color: #e60012;
-    }
-
-    .phones {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .card h3 {
-      margin-top: 0;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: bold;
-      color: #e60012;
-      margin: 10px 0;
-    }
-
-    .btn {
-      display: block;
-      text-align: center;
-      background: #e60012;
-      color: white;
-      text-decoration: none;
-      padding: 12px;
-      border-radius: 8px;
-      margin-top: 15px;
-    }
-
-    footer {
-      text-align: center;
-      color: #777;
-      padding: 30px 10px;
-      font-size: 13px;
-    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#222;line-height:1.45}
+    header{background:var(--accent);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    .brand{font-weight:700;font-size:18px}
+    .top-actions{display:flex;gap:8px;align-items:center}
+    .contact-btn{background:rgba(255,255,255,0.12);color:#fff;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600}
+    main{max-width:1100px;margin:20px auto;padding:0 18px}
+    .hero{background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+    .hero .left{min-width:220px}
+    .hero h1{margin:0;color:var(--accent);font-size:20px}
+    .hero p{margin:6px 0 0;color:var(--muted);font-size:14px}
+    .hero .ctas{display:flex;gap:8px;margin-top:10px}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block}
+    .btn.secondary{background:#333;color:#fff}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+    .card img{width:100%;height:200px;object-fit:cover;border-radius:8px}
+    .card h3{margin:10px 0 6px;font-size:18px}
+    .price{color:var(--accent);font-weight:800;font-size:22px}
+    .badge{display:inline-block;background:#f2f2f2;padding:6px 8px;border-radius:8px;font-size:13px;color:var(--muted)}
+    .small-note{font-size:12px;color:var(--muted);margin-top:8px}
+    .card-footer{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:12px}
+    .tiny{font-size:12px;color:#999}
+    footer{text-align:center;color:#777;padding:26px 12px;font-size:13px}
+    /* modal */
+    #reservationModal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;z-index:999}
+    .modal-inner{background:#fff;padding:18px;border-radius:10px;max-width:480px;width:92%}
+    input,textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid #e5e5e5;margin-top:6px;font-size:14px}
+    label{font-size:13px;color:#333;margin-top:8px;display:block}
+    .row{display:flex;gap:8px}
+    .stars{color:#f5a623;font-weight:700}
+    @media(max-width:600px){ .card img{height:160px} .hero{padding:12px}}
   </style>
 </head>
-
 <body>
 
 <header>
-  JONEKT · KT 공식 상담
+  <div class="brand">JONEKT · KT 공식 상담</div>
+  <div class="top-actions" aria-hidden="false">
+    <a class="contact-btn" href="tel:01044773005" aria-label="전화 걸기">📞 010-4477-3005</a>
+    <a class="contact-btn" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" aria-label="카카오 오픈채팅 열기">💬 카카오톡</a>
+  </div>
 </header>
 
-<section>
-  <!-- 오늘의 시세 -->
-  <div class="today">
-    <h2>📌 오늘의 시세 (2026.01 기준)</h2>
-    <p>
-      · 번호이동 / 기변 / 신규 가능<br/>
-      · 조건에 따라 체감가 달라질 수 있습니다<br/>
-      · 정확한 금액은 상담 필수
-    </p>
-  </div>
-
-  <!-- 기종 목록 -->
-  <div class="phones">
-    <div class="card">
-      <h3>갤럭시 S25 울트라</h3>
-      <div class="price">체감가 0원~</div>
-      <p>번호이동 / 요금제 조건 적용</p>
-      <a class="btn" href="#">상담하기</a>
+<main>
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="left">
+      <h1 id="heroTitle">초이스스페셜 6개월 유지 시(카드 조건 포함) — 기기값 0원 안내</h1>
+      <p>조건: 초이스스페셜 요금제 6개월 유지 + 소정의 카드(할부/할인) 조건 충족 시 기기값 0원 적용 예시입니다. 실제 금액은 상담 후 확정됩니다.</p>
+      <div class="ctas">
+        <a class="btn" href="tel:01044773005">전화 상담</a>
+        <a class="btn secondary" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
+        <button class="btn" id="openReservation">방문/예약하기</button>
+      </div>
+      <p class="tiny" style="margin-top:8px;">영업시간: 10:00 ~ 20:00</p>
     </div>
-
-    <div class="card">
-      <h3>아이폰 16 Pro</h3>
-      <div class="price">체감가 문의</div>
-      <p>색상/용량 재고 상이</p>
-      <a class="btn" href="#">상담하기</a>
+    <div style="min-width:220px;">
+      <div style="background:#fff;padding:10px;border-radius:8px;box-shadow:var(--shadow);text-align:center">
+        <div style="font-size:13px;color:#777">매장 평점</div>
+        <div class="stars" style="font-size:20px;margin-top:6px">★★★★★ (4.9)</div>
+        <div class="tiny" style="margin-top:6px">실제 구매고객 후기 반영</div>
+      </div>
     </div>
+  </section>
 
-    <div class="card">
-      <h3>갤럭시 Z 플립6</h3>
-      <div class="price">할부금 최소</div>
-      <p>KT 전용 혜택 가능</p>
-      <a class="btn" href="#">상담하기</a>
+  <!-- 비교 그리드 -->
+  <section class="grid" aria-label="기기 비교">
+    <!-- 카드 1 -->
+    <article class="card" aria-labelledby="p1">
+      <img src="image1.jpg" alt="기기1 이미지 - 갤럭시 S25 울트라">
+      <h3 id="p1">갤럭시 S25 울트라</h3>
+      <div class="price">기기값 0원</div>
+      <div class="badge">초이스스페셜 6개월 유지 필수</div>
+      <p class="small-note">· 카드 사용 조건: 카드사 약정/할인 적용 필요 (간단 표기)</p>
+      <div class="card-footer">
+        <div>
+          <div class="tiny">번호이동 · 신규 · 기변 가능</div>
+          <div class="tiny">색상/용량·재고에 따라 실제 금액 상이</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a class="btn" href="tel:01044773005">전화 상담</a>
+          <a class="btn secondary" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 카드 2 -->
+    <article class="card" aria-labelledby="p2">
+      <img src="image2.jpg" alt="기기2 이미지 - 아이폰 16 Pro">
+      <h3 id="p2">아이폰 16 Pro</h3>
+      <div class="price">기기값 0원</div>
+      <div class="badge">초이스스페셜 6개월 유지 필수</div>
+      <p class="small-note">· 카드 사용 조건: 일부 카드사 대상(소액 결제/할부) — 상담 필요</p>
+      <div class="card-footer">
+        <div>
+          <div class="tiny">용량·색상 재고 상이</div>
+          <div class="tiny">보상·기변 프로그램 적용 가능</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a class="btn" href="tel:01044773005">전화 상담</a>
+          <a class="btn secondary" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 카드 3 -->
+    <article class="card" aria-labelledby="p3">
+      <img src="image3.jpg" alt="기기3 이미지 - 갤럭시 Z 플립6">
+      <h3 id="p3">갤럭시 Z 플립6</h3>
+      <div class="price">기기값 0원</div>
+      <div class="badge">초이스스페셜 6개월 유지 필수</div>
+      <p class="small-note">· 카드 사용 조건: 제휴카드 또는 할부 이용 시 적용 가능 (작게 표기)</p>
+      <div class="card-footer">
+        <div>
+          <div class="tiny">폴더블 할인/보상 적용 가능</div>
+          <div class="tiny">교체/수리 안내는 상담 후 제공</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:6px;">
+          <a class="btn" href="tel:01044773005">전화 상담</a>
+          <a class="btn secondary" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- 추가 섹션: 간단 FAQ -->
+  <section style="max-width:880px;margin:22px auto;background:#fff;padding:14px;border-radius:10px;box-shadow:var(--shadow);">
+    <h3 style="margin:0 0 8px;color:var(--accent)">자주 묻는 질문</h3>
+    <div style="font-size:14px;color:#333">
+      <strong>Q. 정말 0원으로 가능한가요?</strong>
+      <p class="tiny" style="margin:6px 0 10px">A. 예시 조건(초이스스페셜 6개월 유지 + 카드 조건 만족) 충족 시 실무적으로 0원 표기가 가능합니다. 단, 색상/용량·프로모션 여부에 따라 달라집니다. 정확한 금액은 상담 후 확정됩니다.</p>
+
+      <strong>Q. 카드 조건이 뭔가요?</strong>
+      <p class="tiny" style="margin:6px 0 10px">A. 일부 카드사에서 제공하는 할부/청구할인·사은품 조건을 의미합니다. 매장·카드사에 따라 상이하므로 상담 시 안내드립니다.</p>
+
+      <strong>Q. 약정 해지·위약금 여부는요?</strong>
+      <p class="tiny" style="margin:6px 0 0">A. 요금제 약정·프로모션 조건을 지키지 않을 경우 위약금이 발생할 수 있으니 상담 시 꼭 안내 받으세요.</p>
     </div>
-  </div>
-</section>
+  </section>
+
+</main>
 
 <footer>
   © 2026 JONEKT · KT 전문 상담 매장<br/>
-  ※ 본 사이트의 금액은 예시이며 실제와 다를 수 있습니다
+  연락처: 010-4477-3005 · 카카오톡: https://open.kakao.com/o/sJO5ztai<br/>
+  영업시간: 10:00 ~ 20:00<br/>
+  ※ 본 페이지의 '0원' 표기는 예시(프로모션 조건 충족 시)이며, 실제 금액은 상담을 통해 확정됩니다.
 </footer>
+
+<!-- 예약 모달 -->
+<div id="reservationModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="modal-inner">
+    <h3>방문/상담 예약</h3>
+    <form id="reservationForm">
+      <label for="name">성함</label>
+      <input id="name" name="name" type="text" required placeholder="홍길동">
+
+      <label for="phone">연락처</label>
+      <input id="phone" name="phone" type="tel" required placeholder="010-1234-5678" value="010-4477-3005">
+
+      <label for="model">문의 기종</label>
+      <select id="model" name="model" required>
+        <option value="갤럭시 S25 울트라">갤럭시 S25 울트라</option>
+        <option value="아이폰 16 Pro">아이폰 16 Pro</option>
+        <option value="갤럭시 Z 플립6">갤럭시 Z 플립6</option>
+      </select>
+
+      <label for="date">희망일시</label>
+      <input id="date" name="date" type="datetime-local" required>
+
+      <label for="note">요청사항 (선택)</label>
+      <textarea id="note" name="note" rows="3" placeholder="예: 색상/용량 상담 원함"></textarea>
+
+      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px;">
+        <button type="button" id="closeModal" style="padding:8px 12px;border-radius:6px;">취소</button>
+        <button type="submit" style="background:var(--accent);color:#fff;padding:8px 12px;border-radius:6px;border:0;">예약하기</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- 구조화 데이터: 매장 -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"JONEKT",
+  "telephone":"010-4477-3005",
+  "url":"https://your-domain.com",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"예시구 예시로 123",
+    "addressLocality":"서울",
+    "postalCode":"01234",
+    "addressCountry":"KR"
+  },
+  "openingHours":"Mo-Sa 10:00-20:00"
+}
+</script>
+
+<script>
+  // 모달 열기/닫기
+  const openBtn = document.getElementById('openReservation');
+  const modal = document.getElementById('reservationModal');
+  const closeBtn = document.getElementById('closeModal');
+  openBtn?.addEventListener('click', ()=>{ modal.style.display='flex'; modal.setAttribute('aria-hidden','false'); document.getElementById('name').focus(); });
+  closeBtn?.addEventListener('click', ()=>{ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ modal.style.display='none'; modal.setAttribute('aria-hidden','true'); }});
+
+  // 폼 제출: 현재는 콘솔 출력 + alert. 실제 운영 시 GIFThub 폼 엔드포인트 또는 외부 API로 보내도록 수정하세요.
+  document.getElementById('reservationForm')?.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = {
+      name: this.name.value.trim(),
+      phone: this.phone.value.trim(),
+      model: this.model.value,
+      date: this.date.value,
+      note: this.note.value.trim()
+    };
+    if(!data.name || !data.phone || !data.date){ alert('성함, 연락처, 희망일시는 필수입니다.'); return; }
+    console.log('예약 접수:', data);
+    alert('예약이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+    modal.style.display='none';
+    modal.setAttribute('aria-hidden','true');
+    this.reset();
+  });
+</script>
 
 </body>
 </html>
