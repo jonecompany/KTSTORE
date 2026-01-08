@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JONEKT | KT 전문 매장 - 기기 비교</title>
-  <meta name="description" content="JONEKT KT 공식 매장 - 갤럭시 / 아이폰 / 플립 비교. 초이스스페셜 요금제 6개월 유지 시 기기값 0원 안내. 전화/카카오 바로 상담.">
-  <meta property="og:title" content="JONEKT · KT 공식 상담 - 기기 비교">
+  <title>제이원컴퍼니 | KT 전문 매장 - 기기 비교</title>
+  <meta name="description" content="제이원컴퍼니 KT 공식 매장 - 갤럭시 / 아이폰 / 플립 비교. 초이스스페셜 요금제 6개월 유지 시 기기값 0원 안내. 전화/카카오 바로 상담.">
+  <meta property="og:title" content="제이원컴퍼니 · KT 공식 상담 - 기기 비교">
   <meta property="og:description" content="초이스스페셜 요금제 6개월 유지 + 카드 조건 충족 시 기기값 0원 (예시). 정확한 금액은 상담 필수.">
   <meta property="og:image" content="https://your-domain.com/og-image.jpg">
   <link rel="icon" href="/favicon.ico">
@@ -19,7 +19,7 @@
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#222;line-height:1.45}
-    header{background:var(--accent);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+    header{background:var(--accent);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50}
     .brand{font-weight:700;font-size:18px}
     .top-actions{display:flex;gap:8px;align-items:center}
     .contact-btn{background:rgba(255,255,255,0.12);color:#fff;padding:8px 10px;border-radius:8px;text-decoration:none;font-weight:600}
@@ -29,10 +29,11 @@
     .hero h1{margin:0;color:var(--accent);font-size:20px}
     .hero p{margin:6px 0 0;color:var(--muted);font-size:14px}
     .hero .ctas{display:flex;gap:8px;margin-top:10px}
-    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;display:inline-block;border:0}
     .btn.secondary{background:#333;color:#fff}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin-top:20px}
-    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+    .card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,0.12)}
     .card img{width:100%;height:200px;object-fit:cover;border-radius:8px}
     .card h3{margin:10px 0 6px;font-size:18px}
     .price{color:var(--accent);font-weight:800;font-size:22px}
@@ -48,13 +49,15 @@
     label{font-size:13px;color:#333;margin-top:8px;display:block}
     .row{display:flex;gap:8px}
     .stars{color:#f5a623;font-weight:700}
+    .store-info{font-size:14px;color:#333;margin-top:8px}
+    .store-item{background:#fff;padding:10px;border-radius:8px;box-shadow:var(--shadow);margin-top:10px}
     @media(max-width:600px){ .card img{height:160px} .hero{padding:12px}}
   </style>
 </head>
 <body>
 
 <header>
-  <div class="brand">JONEKT · KT 공식 상담</div>
+  <div class="brand">제이원컴퍼니 · KT 공식 상담</div>
   <div class="top-actions" aria-hidden="false">
     <a class="contact-btn" href="tel:01044773005" aria-label="전화 걸기">📞 010-4477-3005</a>
     <a class="contact-btn" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" aria-label="카카오 오픈채팅 열기">💬 카카오톡</a>
@@ -72,7 +75,21 @@
         <button class="btn" id="openReservation">방문/예약하기</button>
       </div>
       <p class="tiny" style="margin-top:8px;">영업시간: 10:00 ~ 20:00</p>
+
+      <div class="store-info">
+        <div class="store-item">
+          <strong>매장 A (동탄)</strong><br/>
+          경기도 화성시 동탄역로 150<br/>
+          영업: 10:00 ~ 20:00
+        </div>
+        <div class="store-item">
+          <strong>매장 B (평택)</strong><br/>
+          경기도 평택시 이충로35번길 22<br/>
+          영업: 10:00 ~ 20:00
+        </div>
+      </div>
     </div>
+
     <div style="min-width:220px;">
       <div style="background:#fff;padding:10px;border-radius:8px;box-shadow:var(--shadow);text-align:center">
         <div style="font-size:13px;color:#777">매장 평점</div>
@@ -86,7 +103,7 @@
   <section class="grid" aria-label="기기 비교">
     <!-- 카드 1 -->
     <article class="card" aria-labelledby="p1">
-      <img src="image1.jpg" alt="기기1 이미지 - 갤럭시 S25 울트라">
+      <img src="image1.jpg" alt="기기1 이미지 - 갤럭시 S25 울트라" loading="lazy">
       <h3 id="p1">갤럭시 S25 울트라</h3>
       <div class="price">기기값 0원</div>
       <div class="badge">초이스스페셜 6개월 유지 필수</div>
@@ -105,7 +122,7 @@
 
     <!-- 카드 2 -->
     <article class="card" aria-labelledby="p2">
-      <img src="image2.jpg" alt="기기2 이미지 - 아이폰 16 Pro">
+      <img src="image2.jpg" alt="기기2 이미지 - 아이폰 16 Pro" loading="lazy">
       <h3 id="p2">아이폰 16 Pro</h3>
       <div class="price">기기값 0원</div>
       <div class="badge">초이스스페셜 6개월 유지 필수</div>
@@ -124,7 +141,7 @@
 
     <!-- 카드 3 -->
     <article class="card" aria-labelledby="p3">
-      <img src="image3.jpg" alt="기기3 이미지 - 갤럭시 Z 플립6">
+      <img src="image3.jpg" alt="기기3 이미지 - 갤럭시 Z 플립6" loading="lazy">
       <h3 id="p3">갤럭시 Z 플립6</h3>
       <div class="price">기기값 0원</div>
       <div class="badge">초이스스페셜 6개월 유지 필수</div>
@@ -160,8 +177,10 @@
 </main>
 
 <footer>
-  © 2026 JONEKT · KT 전문 상담 매장<br/>
+  © 2026 제이원컴퍼니 · KT 전문 상담 매장<br/>
   연락처: 010-4477-3005 · 카카오톡: https://open.kakao.com/o/sJO5ztai<br/>
+  매장 A (동탄): 경기도 화성시 동탄역로 150<br/>
+  매장 B (평택): 경기도 평택시 이충로35번길 22<br/>
   영업시간: 10:00 ~ 20:00<br/>
   ※ 본 페이지의 '0원' 표기는 예시(프로모션 조건 충족 시)이며, 실제 금액은 상담을 통해 확정됩니다.
 </footer>
@@ -176,6 +195,12 @@
 
       <label for="phone">연락처</label>
       <input id="phone" name="phone" type="tel" required placeholder="010-1234-5678" value="010-4477-3005">
+
+      <label for="store">방문 매장 선택</label>
+      <select id="store" name="store" required>
+        <option value="동탄(경기도 화성시 동탄역로 150)">동탄 (경기도 화성시 동탄역로 150)</option>
+        <option value="평택(경기도 평택시 이충로35번길 22)">평택 (경기도 평택시 이충로35번길 22)</option>
+      </select>
 
       <label for="model">문의 기종</label>
       <select id="model" name="model" required>
@@ -198,23 +223,42 @@
   </div>
 </div>
 
-<!-- 구조화 데이터: 매장 -->
+<!-- 구조화 데이터: 두 매장 정보 -->
 <script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"LocalBusiness",
-  "name":"JONEKT",
-  "telephone":"010-4477-3005",
-  "url":"https://your-domain.com",
-  "address":{
-    "@type":"PostalAddress",
-    "streetAddress":"예시구 예시로 123",
-    "addressLocality":"서울",
-    "postalCode":"01234",
-    "addressCountry":"KR"
+[
+  {
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"제이원컴퍼니 (동탄)",
+    "telephone":"010-4477-3005",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"동탄역로 150",
+      "addressLocality":"화성시",
+      "addressRegion":"경기도",
+      "postalCode":"",
+      "addressCountry":"KR"
+    },
+    "openingHours":"Mo-Su 10:00-20:00",
+    "url":"https://your-domain.com"
   },
-  "openingHours":"Mo-Sa 10:00-20:00"
-}
+  {
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"제이원컴퍼니 (평택)",
+    "telephone":"010-4477-3005",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"이충로35번길 22",
+      "addressLocality":"평택시",
+      "addressRegion":"경기도",
+      "postalCode":"", 
+      "addressCountry":"KR"
+    },
+    "openingHours":"Mo-Su 10:00-20:00",
+    "url":"https://your-domain.com"
+  }
+]
 </script>
 
 <script>
@@ -232,6 +276,7 @@
     const data = {
       name: this.name.value.trim(),
       phone: this.phone.value.trim(),
+      store: this.store.value,
       model: this.model.value,
       date: this.date.value,
       note: this.note.value.trim()
