@@ -11,7 +11,6 @@
   <link rel="icon" href="/favicon.ico">
 
   <style>
-    /* ===== 기본 ===== */
     :root{
       --accent:#e60012;
       --accent-dark:#b3000f;
@@ -26,7 +25,7 @@
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
-    /* ===== 헤더 ===== */
+    /* Header */
     header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
     .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
     .brand{font-weight:800;color:var(--accent);font-size:20px;letter-spacing:0.2px}
@@ -36,37 +35,23 @@
     .kakao{background:#ffcd00;color:#000}
     .topnote{font-size:13px;color:var(--muted);margin-right:12px}
 
-    /* ===== 히어로 ===== */
+    /* Hero */
     .hero{
-      margin:22px 0;
-      border-radius:16px;
-      overflow:hidden;
-      position:relative;
-      display:flex;
-      align-items:center;
-      gap:24px;
-      box-shadow:var(--shadow);
-      min-height:260px;
-      background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));
+      margin:22px 0;border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;gap:24px;box-shadow:var(--shadow);min-height:260px;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));
     }
-    .hero .bg{
-      position:absolute;inset:0;
-      background-image:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg');
-      background-size:cover;background-position:center;filter:blur(2px) brightness(0.78);z-index:0;
-    }
+    .hero .bg{position:absolute;inset:0;background-image:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg');background-size:cover;background-position:center;filter:blur(2px) brightness(0.78);z-index:0}
     .hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;width:100%;padding:36px}
     .hero-left{max-width:68%}
     .hero h1{margin:0;font-size:28px;line-height:1.12;color:#fff;text-shadow:0 8px 28px rgba(0,0,0,0.5)}
     .hero p{margin:10px 0 0;color:#fff;opacity:0.95}
     .hero-ctas{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
     .hero .pill{background:rgba(255,255,255,0.12);color:#fff;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:800}
-
     .hero-side{width:320px;background:rgba(255,255,255,0.98);padding:14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06);color:#111}
     .hero-side .title{font-weight:900;color:var(--accent);margin-bottom:8px}
     .hero-side .small{color:var(--muted);font-size:14px}
     .hero-side .badge{display:inline-block;background:#f6f6f6;padding:8px 10px;border-radius:8px;margin-top:10px;font-weight:800;color:#333}
 
-    /* ===== 제품 그리드 ===== */
+    /* Product grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
     .card{background:var(--card);border-radius:14px;overflow:hidden;box-shadow:0 14px 36px rgba(16,16,16,0.06);transition:transform .18s ease,box-shadow .18s ease}
     .card:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(16,16,16,0.12)}
@@ -81,24 +66,38 @@
     .tag{background:#f6f6f6;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:13px}
     .muted{color:var(--muted);font-size:13px}
 
-    /* ===== 신뢰 섹션 ===== */
+    /* Review slider */
+    #review-slider{margin-top:22px}
+    .rs-wrap{display:flex;align-items:center;gap:12px}
+    .rs-viewport{overflow:hidden;flex:1}
+    .rs-list{display:flex;gap:16px;padding:0;margin:0;list-style:none;transition:transform .45s cubic-bezier(.22,.9,.27,1);will-change:transform}
+    .rs-item{min-width:320px;max-width:100%;flex:0 0 320px}
+    .rs-card{background:#fff;padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06);height:100%;display:flex;flex-direction:column;gap:10px}
+    .rs-stars{color:#f6a623;font-weight:800}
+    .rs-title{font-weight:800;font-size:16px}
+    .rs-text{color:#666;font-size:14px}
+    .rs-arrow{background:transparent;border:0;font-size:20px;cursor:pointer;padding:8px;border-radius:8px}
+    .rs-arrow:focus{outline:3px solid rgba(230,0,18,0.12)}
+    .rs-dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .rs-dot{width:10px;height:10px;border-radius:50%;background:#ddd;cursor:pointer}
+    .rs-dot.active{background:var(--accent)}
+
+    /* Trust section */
     .trust{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
     .trust .left{flex:1;min-width:300px}
     .trust .right{width:340px;min-width:260px}
     .review-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06);margin-bottom:12px}
-    .stars{color:#f6a623;font-weight:800}
-
-    /* ===== FAQ ===== */
     .faq-block{margin-top:20px;background:var(--card);padding:16px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)}
 
-    /* ===== 푸터 ===== */
+    /* Footer */
     footer{margin-top:30px;padding:30px 0;text-align:center;color:var(--muted);font-size:14px}
 
-    /* ===== 반응형 ===== */
+    /* Responsive */
     @media (max-width:980px){
       .hero-inner{flex-direction:column;align-items:flex-start;padding:20px}
       .hero-left{max-width:100%}
       .hero-side{width:100%}
+      .rs-item{min-width:260px;flex:0 0 260px}
     }
     @media (max-width:480px){
       .brand{font-size:18px}
@@ -146,7 +145,7 @@
       </div>
     </section>
 
-    <!-- 제품 그리드 -->
+    <!-- Product grid -->
     <section class="grid" aria-label="기기 비교">
       <article class="card" aria-labelledby="p1">
         <div class="imgwrap">
@@ -185,20 +184,66 @@
       </article>
     </section>
 
-    <!-- Trust / Reviews -->
+    <!-- Review slider -->
+    <section id="review-slider" aria-label="고객 후기">
+      <div class="rs-wrap">
+        <button class="rs-arrow rs-prev" aria-label="이전 후기">◀</button>
+
+        <div class="rs-viewport">
+          <ul class="rs-list" role="list">
+            <li class="rs-item" role="listitem">
+              <div class="rs-card">
+                <div class="rs-stars">★★★★★</div>
+                <div class="rs-title">친절한 상담, 빠른 개통</div>
+                <div class="rs-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div>
+              </div>
+            </li>
+
+            <li class="rs-item" role="listitem">
+              <div class="rs-card">
+                <div class="rs-stars">★★★★★</div>
+                <div class="rs-title">프로모션 혜택 만족</div>
+                <div class="rs-text">초이스스페셜 적용으로 가격 만족했습니다. 안내도 명확했어요.</div>
+              </div>
+            </li>
+
+            <li class="rs-item" role="listitem">
+              <div class="rs-card">
+                <div class="rs-stars">★★★★★</div>
+                <div class="rs-title">빠른 응대</div>
+                <div class="rs-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div>
+              </div>
+            </li>
+
+            <li class="rs-item" role="listitem">
+              <div class="rs-card">
+                <div class="rs-stars">★★★★★</div>
+                <div class="rs-title">전문적 설명</div>
+                <div class="rs-text">요금제/유심/기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <button class="rs-arrow rs-next" aria-label="다음 후기">▶</button>
+      </div>
+
+      <div class="rs-dots" role="tablist" aria-label="후기 네비게이션"></div>
+    </section>
+
+    <!-- Trust / Stores -->
     <section class="trust">
       <div class="left">
-        <div style="font-weight:900;margin-bottom:8px">고객 후기</div>
+        <div style="font-weight:900;margin-bottom:8px">매장 안내</div>
         <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <div style="font-weight:800;margin-top:8px">빠른 개통과 친절한 상담</div>
-          <div class="muted" style="margin-top:6px">매장 방문 후 바로 개통했고, 프로모션 적용도 친절하게 안내받았습니다.</div>
+          <div style="font-weight:800;margin-top:6px">제이원컴퍼니는 KT 공식 대리점입니다.</div>
+          <div class="muted" style="margin-top:6px">빠른 상담은 카카오톡 또는 전화로 문의 주세요.</div>
         </div>
       </div>
 
       <div class="right">
         <div style="background:var(--card);padding:14px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
-          <div style="font-weight:900;margin-bottom:8px">매장 안내</div>
+          <div style="font-weight:900;margin-bottom:8px">매장 위치</div>
           <div class="muted">
             <strong>매장 A (동탄)</strong><br/>경기도 화성시 동탄역로 150<br/><br/>
             <strong>매장 B (평택)</strong><br/>경기도 평택시 이충로35번길 22
@@ -223,5 +268,84 @@
       <div style="margin-top:8px;color:var(--muted)">※ '0원' 표기는 예시이며, 실제 금액은 상담을 통해 확정됩니다.</div>
     </div>
   </footer>
+
+  <script>
+    /* Review slider JS */
+    (function(){
+      const wrap = document.getElementById('review-slider');
+      if(!wrap) return;
+      const list = wrap.querySelector('.rs-list');
+      const items = Array.from(wrap.querySelectorAll('.rs-item'));
+      const prevBtn = wrap.querySelector('.rs-prev');
+      const nextBtn = wrap.querySelector('.rs-next');
+      const dotsWrap = wrap.querySelector('.rs-dots');
+      let index = 0;
+      let timer = null;
+      const AUTOPLAY_DELAY = 4200;
+
+      // create dots
+      items.forEach((_, i) => {
+        const d = document.createElement('button');
+        d.className = 'rs-dot';
+        d.setAttribute('aria-label', `후기 ${i+1} 보기`);
+        d.setAttribute('role','tab');
+        d.addEventListener('click', ()=> goTo(i));
+        dotsWrap.appendChild(d);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function update(){
+        const gap = 16; // css gap
+        const itemW = items[0].getBoundingClientRect().width + gap;
+        list.style.transform = `translateX(${ -index * itemW }px)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === index));
+      }
+
+      function goTo(i){
+        index = (i + items.length) % items.length;
+        update();
+        restartAutoplay();
+      }
+      function prev(){ goTo(index - 1); }
+      function next(){ goTo(index + 1); }
+
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      // keyboard
+      wrap.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') prev();
+        if(e.key === 'ArrowRight') next();
+      });
+
+      // touch
+      let startX = 0, diff = 0;
+      const viewport = wrap.querySelector('.rs-viewport');
+      viewport.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+      viewport.addEventListener('touchmove', e => { diff = e.touches[0].clientX - startX; });
+      viewport.addEventListener('touchend', e => {
+        if(diff > 40) prev();
+        else if(diff < -40) next();
+        diff = 0;
+      });
+
+      // autoplay
+      function startAutoplay(){
+        stopAutoplay();
+        timer = setInterval(()=> { next(); }, AUTOPLAY_DELAY);
+      }
+      function stopAutoplay(){ if(timer) clearInterval(timer); timer = null; }
+      function restartAutoplay(){ stopAutoplay(); startAutoplay(); }
+
+      wrap.addEventListener('mouseenter', ()=>{ stopAutoplay(); });
+      wrap.addEventListener('mouseleave', ()=>{ startAutoplay(); });
+
+      window.addEventListener('load', ()=>{ update(); startAutoplay(); });
+      window.addEventListener('resize', ()=>{ update(); });
+
+      // make focusable
+      wrap.tabIndex = 0;
+    })();
+  </script>
 </body>
 </html>
