@@ -156,9 +156,9 @@
       <!-- 카드 1 -->
       <article class="card" aria-labelledby="p1">
         <div class="ribbon">한정수량</div>
-        <img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="갤럭시 S25 울트라" loading="lazy">
+        <img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="갤럭시 S25" loading="lazy">
         <div class="card-body">
-          <div class="model" id="p1">갤럭시 S25 울트라</div>
+          <div class="model" id="p1">갤럭시 S25</div>
           <div class="price-row">
             <div class="price">기기값 0원</div>
             <div class="tag">초이스스페셜 6개월</div>
@@ -180,9 +180,9 @@
       <!-- 카드 2 -->
       <article class="card" aria-labelledby="p2">
         <div class="ribbon" style="background:#ff9a00">BEST</div>
-        <img src="https://i.postimg.cc/fTvrZT57/daunlodeu.jpg" alt="아이폰 16 Pro" loading="lazy">
+        <img src="https://i.postimg.cc/fTvrZT57/daunlodeu.jpg" alt="아이폰 17" loading="lazy">
         <div class="card-body">
-          <div class="model" id="p2">아이폰 16 Pro</div>
+          <div class="model" id="p2">아이폰 17</div>
           <div class="price-row">
             <div class="price">기기값 0원</div>
             <div class="tag">초이스스페셜 6개월</div>
@@ -204,9 +204,9 @@
       <!-- 카드 3 -->
       <article class="card" aria-labelledby="p3">
         <div class="ribbon" style="background:#00a0ff">추천</div>
-        <img src="https://i.postimg.cc/hGNCMJPS/Kakao-Talk-20260108-165415641-02.jpg" alt="갤럭시 Z 플립6" loading="lazy">
+        <img src="https://i.postimg.cc/hGNCMJPS/Kakao-Talk-20260108-165415641-02.jpg" alt="갤럭시 Z 플립7" loading="lazy">
         <div class="card-body">
-          <div class="model" id="p3">갤럭시 Z 플립6</div>
+          <div class="model" id="p3">갤럭시 Z 플립7</div>
           <div class="price-row">
             <div class="price">기기값 0원</div>
             <div class="tag">초이스스페셜 6개월</div>
@@ -301,9 +301,9 @@
 
         <label for="rmodel">문의 기종</label>
         <select id="rmodel" name="model" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
-          <option>갤럭시 S25 울트라</option>
-          <option>아이폰 16 Pro</option>
-          <option>갤럭시 Z 플립6</option>
+          <option>갤럭시 S25</option>
+          <option>아이폰 17</option>
+          <option>갤럭시 Z 플립7</option>
         </select>
 
         <label for="rdate">희망일시</label>
@@ -321,6 +321,9 @@
   </div>
 
   <script>
+    // Apps Script 웹앱 URL (근호님이 제공한 URL)
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbyXwmaoQjYAhnPGwkCe6eupjpxt6vbtrbvcu38M8f0igThgC0K3FwXSmx5FiM1ltd-pjA/exec';
+
     // 모달 열기/닫기
     document.getElementById('openReservation')?.addEventListener('click', function(){
       document.getElementById('reservationModal').style.display = 'flex';
@@ -333,7 +336,7 @@
       if(e.key === 'Escape') document.getElementById('reservationModal').style.display = 'none';
     });
 
-    // 예약 폼 (현재 콘솔 출력 + alert). 실운영 시 아래 fetch 부분을 주석 해제하고 엔드포인트로 전송하세요.
+    // 예약 폼 -> Google Apps Script로 전송
     document.getElementById('reservationForm')?.addEventListener('submit', function(e){
       e.preventDefault();
       const data = {
@@ -345,20 +348,27 @@
         note: document.getElementById('rnote').value.trim()
       };
       if(!data.name || !data.phone || !data.date){ alert('성함, 연락처, 희망일시는 필수입니다.'); return; }
-      console.log('예약 접수:', data);
-      alert('예약이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-      // 실제 전송 필요하면 아래 예시 주석 해제하고 엔드포인트로 전송하세요.
-      /*
-      fetch('https://your-webhook-endpoint.example.com', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
+
+      // 전송(POST JSON)
+      fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
-      }).then(res=>res.json()).then(r=>{
-        console.log('전송 결과', r);
-      }).catch(err=>console.error(err));
-      */
-      document.getElementById('reservationForm').reset();
-      document.getElementById('reservationModal').style.display = 'none';
+      })
+      .then(res => {
+        // Apps Script는 일반적으로 JSON 문자열을 반환하므로 시도해봄
+        return res.json ? res.json() : res.text();
+      })
+      .then(result => {
+        console.log('전송 성공:', result);
+        alert('예약이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+        document.getElementById('reservationForm').reset();
+        document.getElementById('reservationModal').style.display = 'none';
+      })
+      .catch(err => {
+        console.error('전송 실패:', err);
+        alert('예약 전송에 실패했습니다. 잠시 후 다시 시도하거나 카카오톡으로 문의해주세요.');
+      });
     });
   </script>
 </body>
