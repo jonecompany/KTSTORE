@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>제이원컴퍼니 KT대리점 | 동탄역·평택 이충동</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", sans-serif;
+  color: #222;
+  background: #fff;
+}
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+.hero {
+  background: #e60012;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+.hero h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.btns {
+  margin-top: 30px;
+}
+.btn {
+  display: inline-block;
+  padding: 15px 25px;
+  margin: 5px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn.call {
+  background: white;
+  color: #e60012;
+}
+.btn.kakao {
+  background: #fee500;
+  color: #3b1e1e;
+}
+.title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.box {
+  background: #f7f7f7;
+  padding: 25px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+.fixed-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  z-index: 999;
+}
+.fixed-bar a {
+  flex: 1;
+  text-align: center;
+  padding: 15px 0;
+  font-weight: bold;
+  text-decoration: none;
+}
+.fixed-call {
+  background: #e60012;
+  color: white;
+}
+.fixed-kakao {
+  background: #fee500;
+  color: #3b1e1e;
+}
+.footer {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  padding-bottom: 80px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <h1>제이원컴퍼니 KT대리점</h1>
+  <p>
+    동탄역 · 평택 이충동<br>
+    휴대폰 · 인터넷 · TV 가입 상담
+  </p>
+  <p>
+    ✔ 번호이동 / 기기변경 / 신규<br>
+    ✔ 조건별 맞춤 혜택 상담<br>
+    ✔ 당일 개통 가능
+  </p>
+  <div class="btns">
+    <a href="tel:01044773005" class="btn call">📞 전화 상담</a>
+    <a href="https://open.kakao.com/o/sJO5ztai" class="btn kakao">💬 카톡 상담</a>
+  </div>
+</section>
+
+<section>
+  <div class="title">📱 휴대폰 가입 안내</div>
+  <div class="box">
+    아이폰 / 갤럭시 전 기종<br><br>
+    번호이동 · 기기변경 · 신규가입 가능<br><br>
+    고객 조건 및 요금제에 따라 혜택이 달라질 수 있으며<br>
+    전문 상담을 통해 가장 유리한 조건으로 안내드립니다.
+  </div>
+</section>
+
+<section>
+  <div class="title">🌐 KT 인터넷 · TV</div>
+  <div class="box">
+    KT 인터넷 100M / 500M / 1G<br>
+    TV 결합 상품 상담 가능<br><br>
+    ✔ 빠른 설치<br>
+    ✔ 결합 할인<br>
+    ✔ 사은품 혜택 상담
+  </div>
+</section>
+
+<section>
+  <div class="title">🤝 왜 제이원컴퍼니인가요?</div>
+  <div class="box">
+    ✔ KT 공식 협력 대리점<br>
+    ✔ 불필요한 요금제 강요 ❌<br>
+    ✔ 고객 조건 맞춤 정직한 안내<br>
+    ✔ 개통 후 사후관리까지 책임
+  </div>
+</section>
+
+<section class="footer">
+  제이원컴퍼니 KT대리점<br>
+  동탄역 · 평택 이충동<br><br>
+  ※ 본 사이트의 혜택은 고객 조건에 따라 상이할 수 있습니다.
+</section>
+
+<div class="fixed-bar">
+  <a href="tel:01044773005" class="fixed-call">📞 전화</a>
+  <a href="https://open.kakao.com/o/sJO5ztai" class="fixed-kakao">💬 카톡</a>
+</div>
+
+</body>
+</html>
