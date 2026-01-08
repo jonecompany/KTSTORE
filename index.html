@@ -3,343 +3,363 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>제이원컴퍼니 | KT 공식 매장 - 특가 프로모션</title>
-  <meta name="description" content="제이원컴퍼니 KT 공식 매장 - 초이스스페셜 6개월 유지 + 카드조건 시 기기값 0원(예시). 빠른 상담 및 방문 예약 가능합니다.">
-  <meta property="og:title" content="제이원컴퍼니 · 특가 프로모션">
-  <meta property="og:description" content="기간 한정 프로모션 — 초이스스페셜 6개월 유지 + 카드조건 충족 시 기기값 0원 (예시). 정확한 금액은 상담 필수.">
+  <title>제이원컴퍼니 | KT 공식 매장</title>
+  <meta name="description" content="제이원컴퍼니 KT 공식 대리점 — 초이스스페셜 6개월 유지·카드조건 적용 시 기기값 0원(예시). 빠른 상담 및 방문 예약 가능합니다.">
+  <meta property="og:title" content="제이원컴퍼니 · KT 공식 매장">
+  <meta property="og:description" content="제이원컴퍼니 KT 공식 대리점 — 기간 한정 프로모션 안내. 상담/예약으로 정확한 금액 확인하세요.">
   <meta property="og:image" content="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg">
   <link rel="icon" href="/favicon.ico">
+
   <style>
-    :root{
-      --accent:#e60012;
-      --dark:#111;
-      --muted:#666;
-      --bg:#f6f7f9;
-      --card:#fff;
-      --shadow: 0 8px 30px rgba(18,18,18,0.06);
-      --radius:12px;
-    }
+    /* 기본 리셋 */
     *{box-sizing:border-box}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}
-    a{color:inherit}
-    header{background:#fff;box-shadow:0 1px 0 rgba(0,0,0,0.06);position:sticky;top:0;z-index:80}
-    .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{font-weight:800;color:var(--accent);font-size:20px}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;color:#111;background:#f5f6f8;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1200px;margin:0 auto;padding:0 18px}
+
+    /* 헤더 */
+    header{background:#fff;border-bottom:1px solid #eee;position:sticky;top:0;z-index:100}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 0}
+    .brand{font-weight:800;color:#e60012;font-size:20px}
+    nav{display:flex;gap:16px;color:#666;font-size:14px}
     .top-actions{display:flex;gap:10px;align-items:center}
-    .contact-btn{background:var(--accent);color:#fff;padding:8px 12px;border-radius:8px;text-decoration:none;font-weight:700}
-    .contact-btn.kakao{background:#3f3f3f}
-    nav{display:flex;gap:14px;color:var(--muted);font-size:14px}
-    /* Hero */
-    .hero{margin-top:20px;background:linear-gradient(90deg, rgba(230,0,18,0.06), rgba(0,0,0,0.02));padding:28px;border-radius:14px;display:flex;gap:20px;align-items:center;box-shadow:var(--shadow)}
+    .btn-contact{background:#e60012;color:#fff;padding:10px 14px;border-radius:8px;font-weight:800}
+    .btn-kakao{background:#ffcd00;color:#000;padding:10px 14px;border-radius:8px;font-weight:800;display:inline-flex;align-items:center}
+
+    /* 히어로 */
+    .hero{display:flex;gap:24px;align-items:center;margin-top:20px;background:linear-gradient(90deg, rgba(230,0,18,0.04), rgba(0,0,0,0.01));padding:28px;border-radius:14px;box-shadow:0 8px 30px rgba(18,18,18,0.06)}
     .hero-left{flex:1}
-    .hero h1{margin:0;font-size:26px;color:var(--dark)}
-    .hero p{margin:10px 0 0;color:var(--muted)}
-    .hero-ctas{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
-    .pill{background:#fff;padding:8px 12px;border-radius:999px;border:1px solid rgba(0,0,0,0.04);font-weight:700}
-    .promo-banner{background:linear-gradient(90deg,#fff5f5,#fff);border:2px solid rgba(230,0,18,0.06);padding:10px;border-radius:10px;color:var(--accent);font-weight:800}
+    .hero h1{margin:0;font-size:28px;color:#111;line-height:1.2}
+    .hero p{margin:10px 0;color:#666}
+    .hero-ctas{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .pill{background:#fff;padding:10px 14px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-weight:800}
 
-    /* Grid cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:20px}
-    .card{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);position:relative;display:flex;flex-direction:column}
-    .ribbon{position:absolute;top:12px;left:12px;background:var(--accent);color:#fff;padding:6px 10px;border-radius:8px;font-size:13px;font-weight:700;z-index:5}
+    /* 특징 요약 */
+    .features{display:flex;gap:12px;margin-top:18px}
+    .feature{background:#fff;padding:12px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04);flex:1;text-align:center;font-weight:700;color:#333}
+
+    /* 제품 그리드 */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:22px}
+    .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 14px 30px rgba(16,16,16,0.06);position:relative;display:flex;flex-direction:column}
+    .ribbon{position:absolute;top:12px;left:12px;background:#e60012;color:#fff;padding:6px 10px;border-radius:8px;font-weight:800;font-size:13px;z-index:5}
     .card img{width:100%;height:220px;object-fit:cover;display:block}
-    .card-body{padding:14px;flex:1;display:flex;flex-direction:column;gap:8px}
-    .model{font-weight:800;font-size:18px}
-    .price-row{display:flex;align-items:center;gap:10px;justify-content:space-between}
-    .price{color:var(--accent);font-size:20px;font-weight:900}
-    .tag{background:#f6f6f6;padding:6px 8px;border-radius:8px;font-size:12px;color:var(--muted)}
-    .small-note{font-size:12px;color:var(--muted)}
-    .card-footer{display:flex;gap:10px;align-items:center;justify-content:space-between;margin-top:10px}
-    .btn-ghost{background:#fff;border:1px solid #eee;padding:8px 12px;border-radius:8px}
-    .stock{font-size:13px;color:#0a8a00;font-weight:700}
+    .card-body{padding:14px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .model{font-weight:900;font-size:18px}
+    .price-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:4px}
+    .price{color:#e60012;font-weight:900;font-size:20px}
+    .tag{background:#f8f8f8;padding:6px 8px;border-radius:8px;font-size:13px;color:#666}
+    .small{color:#777;font-size:13px}
 
-    /* highlight compare strip */
-    .compare-strip{margin-top:20px;background:#fff;padding:12px;border-radius:12px;display:flex;gap:14px;align-items:center;justify-content:space-between;box-shadow:var(--shadow)}
-    .compare-strip .left{display:flex;gap:12px;align-items:center}
-    .compare-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#ffecec,#fff);display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--accent)}
-    .compare-text{font-weight:800;color:var(--dark)}
+    .card-footer{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+    .stock{font-weight:800;color:#0a8a00}
 
-    /* reviews */
-    .reviews{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
-    .review-card{background:#fff;padding:12px;border-radius:12px;box-shadow:var(--shadow);flex:1;min-width:220px}
-    .stars{color:#f6a623;font-weight:800}
+    /* 혜택 스트립 */
+    .benefit{margin-top:22px;background:#fff;padding:14px;border-radius:12px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 12px 30px rgba(16,16,16,0.06)}
+    .benefit-left{display:flex;gap:12px;align-items:center}
+    .benefit-badge{background:linear-gradient(135deg,#ffecec,#fff);color:#e60012;font-weight:900;padding:12px;border-radius:10px;font-size:18px}
+    .benefit-txt{font-weight:900}
 
-    footer{margin-top:30px;padding:30px 0;color:var(--muted);font-size:14px;text-align:center;background:transparent}
+    /* reviews/매장 */
+    .section-row{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
+    .reviews{flex:1;min-width:280px}
+    .review-card{background:#fff;padding:12px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.05);margin-bottom:12px}
+    .stores{width:340px;min-width:260px}
 
-    /* floating CTA */
-    .fixed-cta{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:99}
-    .fixed-cta a{display:inline-flex;align-items:center;gap:8px;padding:12px;border-radius:999px;color:#fff;text-decoration:none;font-weight:800}
-    .call-btn{background:var(--accent)}
-    .kakao-btn{background:#ffcd00;color:#000}
+    /* FAQ */
+    .faq{margin-top:22px;background:#fff;padding:16px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.05)}
 
-    /* responsive */
-    @media(max-width:800px){
+    /* footer */
+    footer{margin-top:30px;padding:30px 0;text-align:center;color:#777;font-size:14px}
+
+    /* fixed CTA */
+    .fixed-cta{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:120}
+    .fixed-cta a{display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:999px;color:#fff;font-weight:900}
+    .fixed-cta .call{background:#e60012}
+    .fixed-cta .kakao{background:#ffcd00;color:#000}
+
+    /* small screen */
+    @media(max-width:900px){
       .hero{flex-direction:column;align-items:flex-start}
       .card img{height:180px}
       .hero h1{font-size:20px}
+    }
+    @media(max-width:480px){
+      nav{display:none}
+      .brand{font-size:18px}
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap topbar">
-    <div style="display:flex;align-items:center;gap:18px">
-      <div class="brand">제이원컴퍼니</div>
-      <nav aria-label="주요메뉴">
-        <span>요금제</span>
-        <span>기기</span>
-        <span>프로모션</span>
-        <span>매장안내</span>
-      </nav>
-    </div>
-    <div class="top-actions">
-      <a class="contact-btn" href="tel:01044773005" aria-label="전화 걸기">📞 010-4477-3005</a>
-      <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" aria-label="카카오 오픈채팅">💬 카카오톡</a>
-    </div>
-  </div>
-</header>
+  <header>
+    <div class="wrap topbar">
+      <div style="display:flex;gap:18px;align-items:center">
+        <div class="brand">제이원컴퍼니</div>
+        <nav aria-label="주요메뉴">
+          <span>요금제</span>
+          <span>기기</span>
+          <span>프로모션</span>
+          <span>매장안내</span>
+        </nav>
+      </div>
 
-<main class="wrap">
-  <!-- Hero -->
-  <section class="hero" aria-labelledby="heroTitle">
-    <div class="hero-left">
-      <div class="promo-banner">기간 한정 프로모션 · 선착순 혜택</div>
-      <h1 id="heroTitle">초이스스페셜 6개월 유지 + 카드조건 충족 시<br/>기기값 0원(예시) — 제이원컴퍼니 특별 혜택</h1>
-      <p>지금 상담하면 색상·용량·재고를 우선 안내드립니다. 정확한 금액은 상담 후 확정됩니다.</p>
-      <div class="hero-ctas">
-        <a class="contact-btn" href="tel:01044773005">📞 바로 전화</a>
-        <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">💬 카카오 상담</a>
-        <button class="pill" id="openReservation">방문/예약하기</button>
+      <div class="top-actions">
+        <a class="btn-contact" href="tel:01044773005">📞 010-4477-3005</a>
+        <a class="btn-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">💬 카카오</a>
       </div>
     </div>
-    <div style="width:360px;">
-      <div style="background:#fff;border-radius:12px;padding:14px;box-shadow:var(--shadow);">
-        <div style="font-weight:800;color:var(--accent)">상담 빠른 팁</div>
-        <div style="margin-top:8px;color:var(--muted)">원하시는 기종·예산·방문매장을 알려주시면 더 빠르게 안내드립니다.</div>
-        <div style="margin-top:12px;display:flex;gap:8px;">
-          <div style="padding:8px 10px;background:#f7f7f7;border-radius:8px;font-weight:700">영업 10:00~20:00</div>
-          <div style="padding:8px 10px;background:#f7f7f7;border-radius:8px;font-weight:700">두 매장 운영</div>
+  </header>
+
+  <main class="wrap">
+    <!-- 히어로 -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-left">
+        <div style="display:inline-block;background:#fff;padding:8px 10px;border-radius:8px;font-weight:900;color:#e60012;margin-bottom:8px">기간 한정 · 선착순 혜택</div>
+        <h1 id="heroTitle">초이스스페셜 6개월 유지 + 카드조건 충족 시<br/>기기값 0원(예시) — 제이원컴퍼니 특별 혜택</h1>
+        <p>조건: 초이스스페셜 요금제 6개월 유지 및 카드사 프로모션 조건 충족 시 예시적으로 기기값 0원 표기가 가능합니다. 정확한 금액은 상담 후 확정됩니다.</p>
+        <div class="hero-ctas">
+          <a class="btn-contact" href="tel:01044773005">📞 바로 전화</a>
+          <a class="btn-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">💬 카카오 상담</a>
+          <button class="pill" id="openReservation">방문/예약하기</button>
+        </div>
+
+        <div class="features" style="margin-top:18px">
+          <div class="feature">기기값 0원(조건)</div>
+          <div class="feature">당일 개통 가능(예상)</div>
+          <div class="feature">KT 공식 대리점 인증</div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- compare strip -->
-  <div class="compare-strip" role="region" aria-label="한눈에 혜택">
-    <div class="left">
-      <div class="compare-icon">0원</div>
-      <div class="compare-text">초이스스페셜 6개월 유지 + 카드조건 충족 시 기기값 0원(예시)</div>
-    </div>
-    <div style="color:var(--muted);font-size:14px">정확한 금액은 상담 또는 방문 시 확정됩니다. 위약금/조건 주의</div>
-  </div>
-
-  <!-- product grid -->
-  <section class="grid" aria-label="기기 비교">
-    <!-- card 1 -->
-    <article class="card" aria-labelledby="p1">
-      <div class="ribbon">한정수량</div>
-      <img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="갤럭시 S25 울트라 이미지" loading="lazy">
-      <div class="card-body">
-        <div class="model" id="p1">갤럭시 S25 울트라</div>
-        <div class="price-row">
-          <div class="price">기기값 0원</div>
-          <div class="tag">초이스스페셜 6개월</div>
-        </div>
-        <div class="small-note">· 카드 사용 조건(일부 카드사 대상) / 색상·용량 · 재고에 따라 달라질 수 있습니다.</div>
-        <div class="card-footer">
-          <div>
-            <div class="stock">재고 있음</div>
-            <div class="tiny">번호이동·기변·신규 가능</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <a class="contact-btn" href="tel:01044773005">전화 상담</a>
-            <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
+      <div style="width:360px">
+        <div style="background:#fff;padding:14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06)">
+          <div style="font-weight:900;color:#e60012">상담 빠른 팁</div>
+          <div style="color:#666;margin-top:8px">원하시는 기종·예산·방문매장을 알려주시면 빠르게 안내드립니다.</div>
+          <div style="display:flex;gap:8px;margin-top:12px">
+            <div style="background:#f7f7f7;padding:8px;border-radius:8px;font-weight:800">영업 10:00~20:00</div>
+            <div style="background:#f7f7f7;padding:8px;border-radius:8px;font-weight:800">두 매장 운영</div>
           </div>
         </div>
       </div>
-    </article>
+    </section>
 
-    <!-- card 2 -->
-    <article class="card" aria-labelledby="p2">
-      <div class="ribbon" style="background:#ff9a00">BEST</div>
-      <img src="https://i.postimg.cc/fTvrZT57/daunlodeu.jpg" alt="아이폰 16 Pro 이미지" loading="lazy">
-      <div class="card-body">
-        <div class="model" id="p2">아이폰 16 Pro</div>
-        <div class="price-row">
-          <div class="price">기기값 0원</div>
-          <div class="tag">초이스스페셜 6개월</div>
-        </div>
-        <div class="small-note">· 일부 카드 적용 / 용량·색상에 따른 금액 상이</div>
-        <div class="card-footer">
-          <div>
-            <div class="stock">재고 적음</div>
-            <div class="tiny">보상·기변 프로그램 적용 가능</div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <a class="contact-btn" href="tel:01044773005">전화 상담</a>
-            <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
-          </div>
-        </div>
+    <!-- 혜택 스트립 -->
+    <div class="benefit" role="region" aria-label="혜택">
+      <div class="benefit-left">
+        <div class="benefit-badge">0원</div>
+        <div class="benefit-txt">초이스스페셜 6개월 유지 + 카드조건 충족 시 기기값 0원(예시)</div>
       </div>
-    </article>
+      <div style="color:#666;font-size:14px">정확한 금액은 상담/방문 시 확정됩니다. 약정·위약금 주의</div>
+    </div>
 
-    <!-- card 3 -->
-    <article class="card" aria-labelledby="p3">
-      <div class="ribbon" style="background:#00a0ff">추천</div>
-      <img src="https://i.postimg.cc/hGNCMJPS/Kakao-Talk-20260108-165415641-02.jpg" alt="갤럭시 Z 플립6 이미지" loading="lazy">
-      <div class="card-body">
-        <div class="model" id="p3">갤럭시 Z 플립6</div>
-        <div class="price-row">
-          <div class="price">기기값 0원</div>
-          <div class="tag">초이스스페셜 6개월</div>
-        </div>
-        <div class="small-note">· 제휴카드 또는 할부 시 적용 가능. 상담 필수</div>
-        <div class="card-footer">
-          <div>
-            <div class="stock">재고 있음</div>
-            <div class="tiny">폴더블 할인/보상 적용 가능</div>
+    <!-- 제품 그리드 -->
+    <section class="grid" aria-label="기기 비교">
+      <!-- 카드 1 -->
+      <article class="card" aria-labelledby="p1">
+        <div class="ribbon">한정수량</div>
+        <img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="갤럭시 S25 울트라" loading="lazy">
+        <div class="card-body">
+          <div class="model" id="p1">갤럭시 S25 울트라</div>
+          <div class="price-row">
+            <div class="price">기기값 0원</div>
+            <div class="tag">초이스스페셜 6개월</div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <a class="contact-btn" href="tel:01044773005">전화 상담</a>
-            <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">카카오 상담</a>
+          <div class="small">· 카드 사용 조건(일부 카드사 대상) / 색상·용량·재고에 따라 달라질 수 있습니다.</div>
+          <div class="card-footer">
+            <div>
+              <div class="stock">재고 있음</div>
+              <div class="small" style="margin-top:4px">번호이동·기변·신규 가능</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a class="btn-contact" href="tel:01044773005">전화 상담</a>
+              <a class="btn-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">카카오 상담</a>
+            </div>
           </div>
         </div>
-      </div>
-    </article>
-  </section>
+      </article>
 
-  <!-- reviews & trust -->
-  <section style="margin-top:20px;display:flex;gap:18px;flex-wrap:wrap">
-    <div style="flex:1;min-width:280px">
-      <div style="font-weight:800;margin-bottom:8px">고객 후기</div>
+      <!-- 카드 2 -->
+      <article class="card" aria-labelledby="p2">
+        <div class="ribbon" style="background:#ff9a00">BEST</div>
+        <img src="https://i.postimg.cc/fTvrZT57/daunlodeu.jpg" alt="아이폰 16 Pro" loading="lazy">
+        <div class="card-body">
+          <div class="model" id="p2">아이폰 16 Pro</div>
+          <div class="price-row">
+            <div class="price">기기값 0원</div>
+            <div class="tag">초이스스페셜 6개월</div>
+          </div>
+          <div class="small">· 일부 카드 적용 / 용량·색상에 따른 금액 상이</div>
+          <div class="card-footer">
+            <div>
+              <div class="stock" style="color:#ff7a00">재고 적음</div>
+              <div class="small" style="margin-top:4px">보상·기변 프로그램 적용 가능</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a class="btn-contact" href="tel:01044773005">전화 상담</a>
+              <a class="btn-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">카카오 상담</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 카드 3 -->
+      <article class="card" aria-labelledby="p3">
+        <div class="ribbon" style="background:#00a0ff">추천</div>
+        <img src="https://i.postimg.cc/hGNCMJPS/Kakao-Talk-20260108-165415641-02.jpg" alt="갤럭시 Z 플립6" loading="lazy">
+        <div class="card-body">
+          <div class="model" id="p3">갤럭시 Z 플립6</div>
+          <div class="price-row">
+            <div class="price">기기값 0원</div>
+            <div class="tag">초이스스페셜 6개월</div>
+          </div>
+          <div class="small">· 제휴카드 또는 할부 시 적용 가능. 상담 필수</div>
+          <div class="card-footer">
+            <div>
+              <div class="stock">재고 있음</div>
+              <div class="small" style="margin-top:4px">폴더블 할인/보상 적용 가능</div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a class="btn-contact" href="tel:01044773005">전화 상담</a>
+              <a class="btn-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">카카오 상담</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 리뷰 및 매장 -->
+    <div class="section-row">
       <div class="reviews">
+        <div style="font-weight:900;margin-bottom:12px">고객 후기</div>
         <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <div style="margin-top:8px;font-weight:700">친절한 상담, 빠른 개통</div>
-          <div class="tiny" style="margin-top:6px">매장 방문 후 바로 개통했습니다. 직원분이 설명을 잘 해주셨어요.</div>
+          <div style="font-weight:900;color:#f6a623">★★★★★</div>
+          <div style="font-weight:800;margin-top:8px">친절한 상담, 빠른 개통</div>
+          <div class="small" style="margin-top:6px">매장 방문 후 바로 개통했습니다. 직원분이 설명을 잘 해주셨어요.</div>
         </div>
         <div class="review-card">
-          <div class="stars">★★★★★</div>
-          <div style="margin-top:8px;font-weight:700">프로모션 혜택 만족</div>
-          <div class="tiny" style="margin-top:6px">초이스스페셜 조건으로 실구매 가격이 만족스러웠습니다.</div>
+          <div style="font-weight:900;color:#f6a623">★★★★★</div>
+          <div style="font-weight:800;margin-top:8px">프로모션 혜택 만족</div>
+          <div class="small" style="margin-top:6px">초이스스페셜 조건으로 실구매 가격이 만족스러웠습니다.</div>
         </div>
       </div>
-    </div>
 
-    <div style="width:320px;min-width:260px">
-      <div style="background:#fff;padding:12px;border-radius:12px;box-shadow:var(--shadow)">
-        <div style="font-weight:800;margin-bottom:8px">매장 안내</div>
-        <div style="font-size:14px;color:var(--muted)">
-          <strong>매장 A (동탄)</strong><br/>
-          경기도 화성시 동탄역로 150<br/>
-          영업: 10:00 ~ 20:00<br/><br/>
-          <strong>매장 B (평택)</strong><br/>
-          경기도 평택시 이충로35번길 22<br/>
-          영업: 10:00 ~ 20:00
+      <aside class="stores">
+        <div style="background:#fff;padding:14px;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.06)">
+          <div style="font-weight:900;margin-bottom:8px">매장 안내</div>
+          <div class="small">
+            <strong>매장 A (동탄)</strong><br/>
+            경기도 화성시 동탄역로 150<br/>
+            영업: 10:00 ~ 20:00<br/><br/>
+            <strong>매장 B (평택)</strong><br/>
+            경기도 평택시 이충로35번길 22<br/>
+            영업: 10:00 ~ 20:00
+          </div>
         </div>
-      </div>
+      </aside>
     </div>
-  </section>
 
-  <!-- FAQ -->
-  <section style="margin-top:20px;max-width:880px;background:#fff;padding:16px;border-radius:12px;box-shadow:var(--shadow)">
-    <h3 style="margin:0 0 8px;color:var(--accent)">자주 묻는 질문</h3>
-    <div style="font-size:14px;color:var(--muted)">
-      <strong>Q. 정말 0원으로 가능한가요?</strong>
-      <p>A. 예시 조건(초이스스페셜 6개월 유지 + 카드 조건 만족) 충족 시 0원 표기가 가능합니다. 단, 색상/용량·재고·카드 적용 여부에 따라 달라지므로 상담 시 확정됩니다.</p>
-      <strong>Q. 카드조건은 뭔가요?</strong>
-      <p>A. 일부 카드사의 할부/청구할인·사은품 제공 조건을 의미합니다. 매장·카드사별로 상이하니 상담 시 안내드립니다.</p>
-      <strong>Q. 약정 해지 시 위약금은?</strong>
-      <p>A. 요금제 약정·프로모션 조건을 지키지 않을 경우 위약금이 발생할 수 있습니다. 상담 시 꼭 확인하세요.</p>
-    </div>
-  </section>
-
-</main>
-
-<!-- fixed CTA -->
-<div class="fixed-cta" aria-hidden="false">
-  <a class="call-btn" href="tel:01044773005" aria-label="전화하기">📞 전화</a>
-  <a class="kakao-btn" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" aria-label="카카오톡">💬 카카오</a>
-</div>
-
-<footer>
-  <div class="wrap">
-    © 2026 제이원컴퍼니 · KT 전문 상담 매장 • 연락: 010-4477-3005 • 영업: 10:00 ~ 20:00
-    <div style="margin-top:8px;color:var(--muted)">※ '0원' 표기는 예시(프로모션 조건 충족 시)이며, 실제 금액은 상담을 통해 확정됩니다.</div>
-  </div>
-</footer>
-
-<!-- 예약 모달 (간단) -->
-<div id="reservationModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;z-index:999">
-  <div style="background:#fff;padding:18px;border-radius:12px;max-width:460px;width:92%;box-shadow:var(--shadow)">
-    <h3>방문/상담 예약</h3>
-    <form id="reservationForm">
-      <label for="name">성함</label>
-      <input id="name" name="name" type="text" required placeholder="홍길동" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
-
-      <label for="phone">연락처</label>
-      <input id="phone" name="phone" type="tel" required placeholder="010-1234-5678" value="010-4477-3005" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
-
-      <label for="store">방문 매장</label>
-      <select id="store" name="store" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
-        <option value="동탄">동탄 (경기도 화성시 동탄역로 150)</option>
-        <option value="평택">평택 (경기도 평택시 이충로35번길 22)</option>
-      </select>
-
-      <label for="model">문의 기종</label>
-      <select id="model" name="model" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
-        <option>갤럭시 S25 울트라</option>
-        <option>아이폰 16 Pro</option>
-        <option>갤럭시 Z 플립6</option>
-      </select>
-
-      <label for="date">희망일시</label>
-      <input id="date" name="date" type="datetime-local" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
-
-      <label for="note">요청사항</label>
-      <textarea id="note" name="note" rows="3" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px"></textarea>
-
-      <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
-        <button type="button" id="closeModal" style="padding:10px 12px;border-radius:8px;border:1px solid #e6e6e6;background:#fff">취소</button>
-        <button type="submit" style="padding:10px 12px;border-radius:8px;background:var(--accent);color:#fff;border:0">예약하기</button>
+    <!-- FAQ -->
+    <section class="faq">
+      <h3 style="margin:0 0 8px;color:#e60012">자주 묻는 질문</h3>
+      <div style="color:#666">
+        <p style="margin:6px 0"><strong>Q. 정말 0원으로 가능한가요?</strong><br/>A. 예시 조건(초이스스페셜 6개월 유지 + 카드 조건 만족) 충족 시 0원 표기가 가능합니다. 단, 색상/용량·재고·카드 적용 여부에 따라 달라지므로 상담 시 확정됩니다.</p>
+        <p style="margin:6px 0"><strong>Q. 카드조건은 뭔가요?</strong><br/>A. 일부 카드사의 할부/청구할인·사은품 제공 조건을 의미합니다. 매장·카드사별로 상이하니 상담 시 안내드립니다.</p>
+        <p style="margin:6px 0"><strong>Q. 약정 해지 시 위약금은?</strong><br/>A. 요금제 약정·프로모션 조건을 지키지 않을 경우 위약금이 발생할 수 있습니다. 상담 시 꼭 확인하세요.</p>
       </div>
-    </form>
+    </section>
+
+  </main>
+
+  <!-- 고정 CTA -->
+  <div class="fixed-cta" aria-hidden="false">
+    <a class="call" href="tel:01044773005" style="background:#e60012">📞 전화</a>
+    <a class="kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" style="background:#ffcd00;color:#000">💬 카카오</a>
   </div>
-</div>
 
-<script>
-  // modal open/close
-  document.getElementById('openReservation')?.addEventListener('click', function(){
-    document.getElementById('reservationModal').style.display = 'flex';
-    document.getElementById('name').focus();
-  });
-  document.getElementById('closeModal')?.addEventListener('click', function(){
-    document.getElementById('reservationModal').style.display = 'none';
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') document.getElementById('reservationModal').style.display = 'none';
-  });
+  <footer>
+    <div class="wrap">
+      © 2026 제이원컴퍼니 · KT 전문 상담 매장 • 연락: 010-4477-3005 • 영업: 10:00 ~ 20:00
+      <div style="margin-top:8px;color:#777">※ '0원' 표기는 예시(프로모션 조건 충족 시)이며, 실제 금액은 상담을 통해 확정됩니다.</div>
+    </div>
+  </footer>
 
-  // form submit (현재는 콘솔 출력 + alert)
-  document.getElementById('reservationForm')?.addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = {
-      name: this.name.value.trim(),
-      phone: this.phone.value.trim(),
-      store: this.store.value,
-      model: this.model.value,
-      date: this.date.value,
-      note: this.note.value.trim()
-    };
-    if(!data.name || !data.phone || !data.date){ alert('성함, 연락처, 희망일시는 필수입니다.'); return; }
-    console.log('예약 접수:', data);
-    alert('예약이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
-    this.reset();
-    document.getElementById('reservationModal').style.display = 'none';
-  });
-</script>
+  <!-- 예약 모달 -->
+  <div id="reservationModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.45);align-items:center;justify-content:center;z-index:999">
+    <div style="background:#fff;padding:18px;border-radius:12px;max-width:520px;width:92%;box-shadow:0 14px 40px rgba(0,0,0,0.12)">
+      <h3>방문/상담 예약</h3>
+      <form id="reservationForm">
+        <label for="rname">성함</label>
+        <input id="rname" name="name" type="text" required placeholder="홍길동" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
 
+        <label for="rphone">연락처</label>
+        <input id="rphone" name="phone" type="tel" required placeholder="010-1234-5678" value="010-4477-3005" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
+
+        <label for="rstore">방문 매장</label>
+        <select id="rstore" name="store" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
+          <option value="동탄">동탄 (경기도 화성시 동탄역로 150)</option>
+          <option value="평택">평택 (경기도 평택시 이충로35번길 22)</option>
+        </select>
+
+        <label for="rmodel">문의 기종</label>
+        <select id="rmodel" name="model" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
+          <option>갤럭시 S25 울트라</option>
+          <option>아이폰 16 Pro</option>
+          <option>갤럭시 Z 플립6</option>
+        </select>
+
+        <label for="rdate">희망일시</label>
+        <input id="rdate" name="date" type="datetime-local" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px">
+
+        <label for="rnote">요청사항</label>
+        <textarea id="rnote" name="note" rows="3" style="width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6;margin-top:6px"></textarea>
+
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+          <button type="button" id="closeModal" style="padding:10px 12px;border-radius:8px;border:1px solid #e6e6e6;background:#fff">취소</button>
+          <button type="submit" style="padding:10px 12px;border-radius:8px;background:#e60012;color:#fff;border:0">예약하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // 모달 열기/닫기
+    document.getElementById('openReservation')?.addEventListener('click', function(){
+      document.getElementById('reservationModal').style.display = 'flex';
+      document.getElementById('rname').focus();
+    });
+    document.getElementById('closeModal')?.addEventListener('click', function(){
+      document.getElementById('reservationModal').style.display = 'none';
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') document.getElementById('reservationModal').style.display = 'none';
+    });
+
+    // 예약 폼 (현재 콘솔 출력 + alert). 실운영 시 아래 fetch 부분을 주석 해제하고 엔드포인트로 전송하세요.
+    document.getElementById('reservationForm')?.addEventListener('submit', function(e){
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('rname').value.trim(),
+        phone: document.getElementById('rphone').value.trim(),
+        store: document.getElementById('rstore').value,
+        model: document.getElementById('rmodel').value,
+        date: document.getElementById('rdate').value,
+        note: document.getElementById('rnote').value.trim()
+      };
+      if(!data.name || !data.phone || !data.date){ alert('성함, 연락처, 희망일시는 필수입니다.'); return; }
+      console.log('예약 접수:', data);
+      alert('예약이 접수되었습니다. 빠른 시일 내에 연락드리겠습니다.');
+      // 실제 전송 필요하면 아래 예시 주석 해제하고 엔드포인트로 전송하세요.
+      /*
+      fetch('https://your-webhook-endpoint.example.com', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify(data)
+      }).then(res=>res.json()).then(r=>{
+        console.log('전송 결과', r);
+      }).catch(err=>console.error(err));
+      */
+      document.getElementById('reservationForm').reset();
+      document.getElementById('reservationModal').style.display = 'none';
+    });
+  </script>
 </body>
 </html>
