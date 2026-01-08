@@ -17,10 +17,12 @@
       --bg:#f5f6f8;
       --card:#ffffff;
       --muted:#6b6b6b;
-      --shadow: 0 12px 30px rgba(16,16,16,0.08);
+      --shadow: 0 14px 40px rgba(16,16,16,0.08);
       --radius:12px;
       --kt-yellow:#ffcd00;
       --kt-dark:#000;
+      --cta-green:#19a974; /* 네이버 스타일 계열의 초록(눈에 띄는 색) */
+      --cta-green-dark:#158a63;
     }
     *{box-sizing:border-box}
     body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;background:var(--bg);color:#111;-webkit-font-smoothing:antialiased}
@@ -28,39 +30,45 @@
     .wrap{max-width:1180px;margin:0 auto;padding:0 18px}
 
     /* Header */
-    header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
-    .topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
+    header{position:sticky;top:0;z-index:120;background:linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.98));backdrop-filter:blur(4px);border-bottom:1px solid rgba(0,0,0,0.04)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 0;gap:12px}
     .brand-wrap{display:flex;align-items:center;gap:12px}
     .brand{font-weight:900;color:var(--accent);font-size:20px;letter-spacing:0.2px}
     .kt-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:8px;background:linear-gradient(90deg,var(--kt-yellow),#ffd44d);color:var(--kt-dark);font-weight:800;font-size:13px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-    .contact-group{display:flex;gap:10px;align-items:center}
-    .contact-btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;font-weight:800;color:#fff}
-    .call{background:linear-gradient(180deg,var(--accent),var(--accent-dark))}
-    .kakao{background:var(--kt-yellow);color:var(--kt-dark)}
     .topnote{font-size:13px;color:var(--muted);margin-left:8px}
 
+    /* header CTA group (including 네이버 오시는길 버튼) */
+    .header-ctas{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .contact-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;font-weight:800;color:#fff}
+    .call{background:linear-gradient(180deg,var(--accent),var(--accent-dark))}
+    .kakao{background:var(--kt-yellow);color:var(--kt-dark)}
+    .naver-cta{background:linear-gradient(180deg,var(--cta-green),var(--cta-green-dark));color:#fff;padding:10px 14px;border-radius:10px;font-weight:900;display:inline-flex;align-items:center;gap:8px;box-shadow:0 8px 20px rgba(25,169,116,0.12);border:1px solid rgba(0,0,0,0.04)}
+    .naver-cta svg{width:16px;height:16px;vertical-align:middle}
+
     /* Hero */
-    .hero{margin:22px 0;border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;gap:24px;box-shadow:var(--shadow);min-height:260px;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));}
+    .hero{margin:18px 0;border-radius:16px;overflow:hidden;position:relative;display:flex;align-items:center;gap:20px;box-shadow:var(--shadow);min-height:240px;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));}
     .hero .bg{position:absolute;inset:0;background-image:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg');background-size:cover;background-position:center;filter:blur(2px) brightness(0.78);z-index:0}
-    .hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;width:100%;padding:36px}
+    .hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;width:100%;padding:28px 28px}
     .hero-left{max-width:68%}
-    .hero h1{margin:0;font-size:28px;line-height:1.12;color:#fff;text-shadow:0 8px 28px rgba(0,0,0,0.5)}
+    .hero h1{margin:0;font-size:26px;line-height:1.12;color:#fff;text-shadow:0 8px 28px rgba(0,0,0,0.5)}
     .hero p{margin:10px 0 0;color:#fff;opacity:0.95}
-    .hero-ctas{margin-top:16px;display:flex;gap:12px;flex-wrap:wrap}
+    .hero-ctas{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
     .hero .pill{background:rgba(255,255,255,0.12);color:#fff;padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,0.08);font-weight:800}
-    .hero-side{width:320px;background:rgba(255,255,255,0.98);padding:14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06);color:#111}
+
+    .hero-side{width:300px;background:rgba(255,255,255,0.98);padding:14px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06);color:#111}
     .hero-side .title{font-weight:900;color:var(--accent);margin-bottom:8px}
     .hero-side .small{color:var(--muted);font-size:14px}
-    .hero-side .badge{display:inline-block;background:#f6f6f6;padding:8px 10px;border-radius:8px;margin-top:10px;font-weight:800;color:#333}
 
-    /* Promo banner strip */
-    .promo-strip{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;align-items:stretch}
-    .promo-item{flex:1;min-width:220px;background:linear-gradient(180deg,#fff,#fff);padding:14px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;gap:8px}
-    .promo-title{font-weight:900;color:var(--accent);font-size:16px}
-    .promo-desc{color:var(--muted);font-size:14px}
-    .promo-cta{margin-top:10px;display:inline-flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:800}
+    /* Promo banner strip - improved visuals */
+    .promo-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:16px;align-items:stretch}
+    .promo-item{background:linear-gradient(180deg,#fff,#fff);padding:16px;border-radius:14px;box-shadow:0 12px 34px rgba(16,16,16,0.06);display:flex;flex-direction:column;justify-content:space-between;min-height:120px;border:1px solid rgba(0,0,0,0.03)}
+    .promo-head{display:flex;align-items:center;gap:12px}
+    .promo-icon{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,rgba(0,0,0,0.03),rgba(0,0,0,0.01));display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--accent);font-size:20px}
+    .promo-title{font-weight:900;color:#111;font-size:15px}
+    .promo-desc{color:var(--muted);font-size:13px;margin-top:8px}
+    .promo-cta{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;background:var(--accent);color:#fff;font-weight:900;border:0}
     .promo-cta.kakao{background:var(--kt-yellow);color:#000}
-    .promo-note{font-size:12px;color:#999;margin-top:6px}
+    .promo-note{font-size:12px;color:#999;margin-top:8px}
 
     /* Product grid */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
@@ -86,7 +94,12 @@
     .ar-title{font-weight:800;margin-top:6px}
     .ar-text{color:#666;margin-top:6px;font-size:14px}
 
-    /* Trust and stores */
+    /* Store CTA group (top placed) */
+    .store-ctas{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+    .store-btn{background:var(--cta-green);color:#fff;padding:10px 14px;border-radius:999px;font-weight:900;display:inline-flex;align-items:center;gap:8px;box-shadow:0 10px 24px rgba(25,169,116,0.12);border:1px solid rgba(0,0,0,0.03)}
+    .store-btn svg{width:16px;height:16px}
+
+    /* Trust and FAQ */
     .trust{display:flex;gap:18px;margin-top:22px;flex-wrap:wrap}
     .trust .left{flex:1;min-width:300px}
     .trust .right{width:340px;min-width:260px}
@@ -98,10 +111,11 @@
 
     /* Responsive */
     @media (max-width:980px){
-      .hero-inner{flex-direction:column;align-items:flex-start;padding:20px}
+      .hero-inner{flex-direction:column;align-items:flex-start;padding:18px}
       .hero-side{width:100%}
-      .promo-strip{flex-direction:column}
+      .promo-strip{grid-template-columns:1fr}
       .ar-viewport{height:180px}
+      .store-ctas{justify-content:flex-start}
     }
     @media (max-width:480px){
       .brand{font-size:18px}
@@ -122,7 +136,21 @@
         </div>
         <div class="topnote">영업 10:00 ~ 20:00 · 동탄 · 평택</div>
       </div>
-      <div style="display:flex;align-items:center;gap:12px">
+
+      <div class="header-ctas">
+        <!-- Store CTAs moved to header, green buttons as 요청 -->
+        <a class="store-btn" href="https://map.naver.com/p/search/kt%EB%8F%99%ED%83%84%EC%97%AD/place/1427826567?placePath=/home?bk_query=kt%EB%8F%99%ED%83%84%EC%97%AD&entry=pll&from=map&fromNxList=true&fromPanelNum=2&timestamp=202601081922&locale=ko&svcName=map_pcv5&searchText=kt%EB%8F%99%ED%83%84%EC%97%AD&searchType=place" target="_blank" rel="noopener noreferrer" aria-label="동탄역 오시는길">
+          <!-- 간단한 지도 아이콘 (inline SVG) -->
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.761 0 5 2.239 5 5 0 4.5-5 11-5 11s-5-6.5-5-11c0-2.761 2.239-5 5-5z" fill="#fff"/></svg>
+          동탄역 오시는길
+        </a>
+
+        <a class="store-btn" href="https://map.naver.com/p/search/kt%EC%9D%B4%EC%B6%A9%EB%8F%99/place/1162095824?placePath=%3Fbk_query%3Dkt%25EC%259D%25B4%25EC%25B6%25A9%25EB%258F%2599%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue&placeSearchOption=bk_query%3Dkt%25EC%259D%25B4%25EC%25B6%25A9%25EB%258F%2599%26entry%3Dpll%26fromNxList%3Dtrue%26x%3D127.090176%26y%3D37.191464&searchType=place" target="_blank" rel="noopener noreferrer" aria-label="이충동 오시는길">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2c2.761 0 5 2.239 5 5 0 4.5-5 11-5 11s-5-6.5-5-11c0-2.761 2.239-5 5-5z" fill="#fff"/></svg>
+          이충동 오시는길
+        </a>
+
+        <!-- 전화 / 카카오 -->
         <a class="contact-btn call" href="tel:01044773005" aria-label="전화">📞 010-4477-3005</a>
         <a class="contact-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer" aria-label="카카오">💬 카카오톡</a>
       </div>
@@ -153,49 +181,61 @@
       </div>
     </section>
 
-    <!-- Promo banner strip -->
-    <div class="promo-strip">
+    <!-- Promo banner strip (upgraded visual) -->
+    <div class="promo-strip" aria-label="혜택 안내">
       <div class="promo-item">
-        <div>
-          <div class="promo-title">전국 어디든 당일 퀵배송</div>
-          <div class="promo-desc">빠르고 안전한 당일 퀵배송 서비스(추가 요금/지역 제한 안내)</div>
+        <div class="promo-head">
+          <div class="promo-icon">⚡</div>
+          <div>
+            <div class="promo-title">전국 어디든 당일 퀵배송</div>
+            <div class="promo-desc">빠르고 안전하게 배송해드립니다. 지역·재고에 따라 금액/가능 지역이 달라질 수 있습니다.</div>
+          </div>
         </div>
         <div>
-          <a class="promo-cta" href="https://open.kakao.com/o/sJO5ztai" target="_blank">카카오로 문의</a>
-          <div class="promo-note">※ 지역·재고에 따라 달라질 수 있습니다.</div>
+          <a class="promo-cta" href="https://open.kakao.com/o/sJO5ztai" target="_blank">퀵배송 문의</a>
+          <div class="promo-note">※ 익일 지역 제외, 상세 조건 상담 필수</div>
         </div>
       </div>
 
       <div class="promo-item">
-        <div>
-          <div class="promo-title">정품 케이스 전원 증정</div>
-          <div class="promo-desc">기기 구매 시 정품 케이스를 무료로 드립니다. (재고 소진 시 종료)</div>
+        <div class="promo-head">
+          <div class="promo-icon">📦</div>
+          <div>
+            <div class="promo-title">정품 케이스 전원 증정</div>
+            <div class="promo-desc">기기 구매 고객 전원에게 정품 케이스를 드려요. (한정 수량)</div>
+          </div>
         </div>
         <div>
-          <a class="promo-cta" href="https://open.kakao.com/o/sJO5ztai" target="_blank" class="kakao">카카오 상담</a>
-          <div class="promo-note">※ 구매 조건 별도 적용</div>
-        </div>
-      </div>
-
-      <div class="promo-item">
-        <div>
-          <div class="promo-title">포토후기 작성 시 추가 사은품</div>
-          <div class="promo-desc">구매 후 포토후기 등록 시 추가 사은품을 드립니다.</div>
-        </div>
-        <div>
-          <a class="promo-cta" href="https://open.kakao.com/o/sJO5ztai" target="_blank">후기 문의</a>
-          <div class="promo-note">※ 사은품 재고에 따라 변경될 수 있음</div>
+          <a class="promo-cta kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">자세히 문의</a>
+          <div class="promo-note">※ 모델별 재고 상이</div>
         </div>
       </div>
 
       <div class="promo-item">
+        <div class="promo-head">
+          <div class="promo-icon">🎁</div>
+          <div>
+            <div class="promo-title">포토후기 작성 시 추가 사은품</div>
+            <div class="promo-desc">포토후기 등록하면 추가 사은품을 드립니다(랜덤 또는 선택 품목).</div>
+          </div>
+        </div>
         <div>
-          <div class="promo-title">인터넷TV 추가설치 시 현금 80만원 증정</div>
-          <div class="promo-desc">인터넷TV 추가 설치 신청 시 현금 80만원 혜택(조건 확인 필수)</div>
+          <a class="promo-cta" href="https://open.kakao.com/o/sJO5ztai" target="_blank">후기 안내</a>
+          <div class="promo-note">※ 후기 등록 후 확인 절차 필요</div>
+        </div>
+      </div>
+
+      <div class="promo-item">
+        <div class="promo-head">
+          <div class="promo-icon">📺</div>
+          <div>
+            <div class="promo-title">인터넷TV 추가설치 시 현금 80만원 증정</div>
+            <div class="promo-desc">인터넷TV 추가 설치 조건 충족 시 현금 혜택 제공(조건 확인 필요)</div>
+          </div>
         </div>
         <div>
           <a class="promo-cta" href="https://open.kakao.com/o/sJO5ztai" target="_blank">혜택 문의</a>
-          <div class="promo-note">※ 제휴/약정 조건 확인 필요</div>
+          <div class="promo-note">※ 제휴/약정/설치 조건에 따라 변동</div>
         </div>
       </div>
     </div>
@@ -270,16 +310,9 @@
           <!-- clone for seamless loop (duplicate same 20 items) -->
           <div class="ar-inner" aria-hidden="true">
             <!-- duplicated content omitted for brevity (same 20 items) -->
-            <!-- In actual file above, duplicates are included so animation is seamless -->
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- Store CTAs -->
-    <section style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-      <a href="https://map.naver.com/p/search/kt%EB%8F%99%ED%83%84%EC%97%AD/place/1427826567?placePath=/home?bk_query=kt%EB%8F%99%ED%83%84%EC%97%AD&entry=pll&from=map&fromNxList=true&fromPanelNum=2&timestamp=202601081922&locale=ko&svcName=map_pcv5&searchText=kt%EB%8F%99%ED%83%84%EC%97%AD&searchType=place" target="_blank" rel="noopener noreferrer" style="padding:12px 14px;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06);font-weight:800;">동탄역 네이버플레이스 보기</a>
-      <a href="https://map.naver.com/p/search/kt%EC%9D%B4%EC%B6%A9%EB%8F%99/place/1162095824?placePath=%3Fbk_query%3Dkt%25EC%259D%25B4%25EC%25B6%25A9%25EB%258F%2599%26entry%3Dpll%26from%3Dnx%26fromNxList%3Dtrue&placeSearchOption=bk_query%3Dkt%25EC%259D%25B4%25EC%25B6%25A9%25EB%258F%2599%26entry%3Dpll%26fromNxList%3Dtrue%26x%3D127.090176%26y%3D37.191464&searchType=place" target="_blank" rel="noopener noreferrer" style="padding:12px 14px;background:#fff;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.06);font-weight:800;">평택 이충동 네이버플레이스 보기</a>
     </section>
 
     <!-- Trust / Stores -->
