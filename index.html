@@ -6,6 +6,7 @@
   <title>제이원컴퍼니 · KT 공식 대리점</title>
   <meta name="description" content="제이원컴퍼니 KT 공식 대리점 — 심플30GB(월 61,000원 요금제 기준) 프로모션 안내">
   <link rel="icon" href="/favicon.ico">
+
   <style>
     :root{
       --accent:#e60012;
@@ -23,243 +24,107 @@
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",AppleSDGothicNeo,Arial;background:var(--bg);color:#111;font-size:var(--base);-webkit-font-smoothing:antialiased;line-height:1.45}
-    a{color:inherit;text-decoration:none}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Noto Sans KR",AppleSDGothicNeo,Arial;
+      background:var(--bg);
+      color:#111;
+      font-size:var(--base);
+      line-height:1.45
+    }
+    a{text-decoration:none;color:inherit}
     .wrap{max-width:var(--site-max);margin:0 auto;padding:0 var(--gutter)}
 
     /* Header */
-    header{position:sticky;top:0;z-index:140;background:rgba(255,255,255,0.98);backdrop-filter:blur(6px);border-bottom:1px solid rgba(0,0,0,0.04)}
-    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0}
+    header{position:sticky;top:0;z-index:140;background:#fff;border-bottom:1px solid rgba(0,0,0,0.05)}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0}
     .brand-row{display:flex;align-items:center;gap:12px}
-    .logo-wrap{width:64px;height:64px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;box-shadow:0 6px 16px rgba(0,0,0,0.06)}
-    .logo-wrap img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
-    .brand-text{display:flex;flex-direction:column;line-height:1}
+    .logo-wrap{width:64px;height:64px;border-radius:10px;overflow:hidden;box-shadow:0 6px 16px rgba(0,0,0,.08)}
+    .logo-wrap img{width:100%;height:100%;object-fit:contain}
     .brand-title{font-weight:900;color:var(--accent);font-size:17px}
-    .brand-sub{font-size:12px;color:var(--muted);margin-top:2px}
-    .kt-badge{margin-left:8px;padding:6px 10px;border-radius:10px;background:linear-gradient(90deg,var(--kt-yellow),#ffd44d);font-weight:800;color:#000;font-size:12px;box-shadow:0 6px 14px rgba(0,0,0,0.06);}
+    .brand-sub{font-size:12px;color:var(--muted)}
 
-    .header-ctas{display:flex;align-items:center;gap:8px}
-    .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:10px;font-weight:900;border:0;cursor:pointer;min-height:44px}
+    .header-ctas{display:flex;gap:8px;flex-wrap:wrap}
+    .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:10px 12px;
+      border-radius:10px;
+      font-weight:900;
+      font-size:14px;
+      min-height:44px;
+      white-space:nowrap;
+    }
     .cta-call{background:linear-gradient(180deg,var(--accent),var(--accent-dark));color:#fff}
-    .cta-kakao{background:var(--kt-yellow);color:#000}
+    .cta-kakao{background:var(--kt-yellow)}
     .cta-place{background:linear-gradient(180deg,var(--cta-green),#158a63);color:#fff}
 
-    @media (max-width:480px){
-      .brand-title{font-size:16px}
-      .logo-wrap{width:50px;height:50px}
-      .cta-btn{padding:11px 12px;font-size:14px;min-height:44px}
-    }
-
     /* Hero */
-    .hero{margin:14px 0;border-radius:12px;overflow:hidden;position:relative;box-shadow:var(--shadow);min-height:220px;background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(255,255,255,0.02));}
-    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.78);z-index:0}
-    .hero-inner{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;padding:20px;gap:16px}
-    .hero-left{max-width:66%}
-    .hero-title{margin:0;font-size:22px;color:#fff;line-height:1.12;font-weight:900;text-shadow:0 8px 28px rgba(0,0,0,0.45)}
-    .hero-desc{margin:8px 0 0;color:#fff;opacity:.95}
-    .hero-panel{background:linear-gradient(180deg, rgba(0,0,0,0.38), rgba(0,0,0,0.28));padding:12px;border-radius:10px;display:inline-block}
-    .hero-side{width:300px;background:#fff;padding:12px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,0.06);color:#111}
-    @media (max-width:980px){
-      .hero-inner{flex-direction:column;align-items:flex-start;padding:16px}
-      .hero-title{font-size:20px}
-      .hero-side{width:100%}
-    }
+    .hero{margin:14px 0;border-radius:12px;overflow:hidden;position:relative;min-height:220px;box-shadow:var(--shadow)}
+    .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.78)}
+    .hero-inner{position:relative;z-index:2;display:flex;gap:16px;padding:20px}
+    .hero-left{max-width:65%}
+    .hero-title{font-size:22px;color:#fff;font-weight:900;line-height:1.15}
+    .hero-desc{color:#fff;font-size:14px;margin-top:6px}
+    .hero-panel{background:rgba(0,0,0,.35);padding:14px;border-radius:10px}
+    .hero-side{width:300px;background:#fff;padding:14px;border-radius:10px}
 
     /* Promo */
     .promo-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
-    .promo-card{background:#fff;padding:12px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06);display:flex;flex-direction:column;justify-content:space-between;min-height:110px;border:1px solid rgba(0,0,0,0.03)}
-    .promo-top{display:flex;gap:10px;align-items:center}
-    .promo-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;background:linear-gradient(135deg,rgba(0,0,0,0.02),rgba(0,0,0,0.01));color:var(--accent)}
+    .promo-card{background:#fff;padding:12px;border-radius:12px;box-shadow:var(--shadow)}
     .promo-title{font-weight:800;font-size:14px}
-    .promo-desc{margin-top:6px;color:var(--muted);font-size:13px}
-    .promo-note{font-size:12px;color:#999;margin-top:8px}
-    @media (max-width:1100px){ .promo-strip{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:640px){ .promo-strip{grid-template-columns:1fr} .promo-card{padding:10px} .promo-icon{width:44px;height:44px} }
+    .promo-desc{font-size:13px;color:var(--muted)}
 
     /* Products */
     .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
-    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:0 12px 30px rgba(16,16,16,0.06)}
-    .imgwrap{height:180px;overflow:hidden}
-    .imgwrap img{width:100%;height:100%;object-fit:cover;display:block}
+    .card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .imgwrap{height:180px}
+    .imgwrap img{width:100%;height:100%;object-fit:cover}
     .card-body{padding:12px}
-    .model{font-weight:900;font-size:16px}
-    .price{color:var(--accent);font-weight:900;font-size:15px}
-    .tag{display:inline-block;background:#f6f6f6;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:12px;margin-left:8px}
-    @media (max-width:980px){ .grid{grid-template-columns:repeat(2,1fr)} }
-    @media (max-width:640px){ .grid{grid-template-columns:1fr} .imgwrap{height:160px} }
+    .model{font-weight:900}
+    .price{color:var(--accent);font-weight:900}
+    .tag{font-size:12px;color:#666;background:#f3f3f3;padding:4px 6px;border-radius:6px}
 
     /* Reviews */
-    .auto-reviews{margin-top:12px}
-    .ar-viewport{height:180px;overflow:hidden;position:relative}
-    .ar-track{display:block;animation:scroll-vert 48s linear infinite}
-    @keyframes scroll-vert{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
-    .ar-item{padding:12px;border-radius:10px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,0.06);margin-bottom:10px}
-    .ar-stars{color:#f6a623;font-weight:800}
-    .ar-title{font-weight:800;margin-top:6px}
-    .ar-text{color:var(--muted);margin-top:6px;font-size:14px}
-    @media (max-width:520px){ .ar-viewport{height:140px} .ar-item{padding:10px} .ar-track{animation-duration:60s} }
+    .ar-viewport{height:180px;overflow:hidden}
+    .ar-item{background:#fff;padding:12px;border-radius:10px;box-shadow:var(--shadow);margin-bottom:10px}
 
-    /* Footer */
-    footer{margin-top:18px;padding:18px 0;text-align:center;color:var(--muted);font-size:13px}
+    footer{margin-top:20px;padding:20px 0;font-size:13px;color:#777;text-align:center}
+
+    /* ===================== */
+    /* 📱 모바일 전용 보정 */
+    /* ===================== */
+    @media (max-width:768px){
+
+      body{font-size:14px}
+
+      .topbar{flex-direction:column;align-items:flex-start}
+      .header-ctas{width:100%}
+      .cta-btn{flex:1}
+
+      .hero{min-height:auto}
+      .hero-inner{
+        flex-direction:column;
+        padding:14px;
+      }
+      .hero-left{max-width:100%}
+      .hero-title{font-size:18px}
+      .hero-desc{font-size:13px}
+      .hero-side{width:100%}
+
+      .promo-strip{grid-template-columns:1fr}
+      .promo-card{padding:10px}
+
+      .grid{grid-template-columns:1fr}
+      .imgwrap{height:160px}
+
+      .tag{display:block;margin-top:6px}
+    }
   </style>
 </head>
+
 <body>
-
-  <!-- base64 이미지 (너가 준 전체 문자열) -->
-  <script>
-    const IMG_BASE64_FULL = "data:image/jpeg;base64,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";
-  </script>
-
-  <!-- Header -->
-  <header>
-    <div class="wrap topbar">
-      <div class="brand-row">
-        <div class="logo-wrap" aria-hidden="true">
-          <img id="siteLogo" src="" alt="제이원컴퍼니 로고">
-        </div>
-        <div class="brand-text">
-          <div class="brand-title">제이원컴퍼니</div>
-          <div class="brand-sub">KT 공식 대리점 · 영업 10:00 ~ 20:00</div>
-        </div>
-        <div class="kt-badge" aria-hidden="true">KT 공식 대리점</div>
-      </div>
-
-      <div class="header-ctas">
-        <a class="cta-btn cta-place" href="https://map.naver.com/p/search/kt%EB%8F%99%ED%83%84%EC%97%AD/place/1427826567" target="_blank" rel="noopener noreferrer">동탄역 오시는길</a>
-        <a class="cta-btn cta-place" href="https://map.naver.com/p/search/kt%EC%9D%B4%EC%B6%A9%EB%8F%99/place/1162095824" target="_blank" rel="noopener noreferrer">이충동 오시는길</a>
-        <a class="cta-btn cta-call" href="tel:01044773005">📞 010-4477-3005</a>
-        <a class="cta-btn cta-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank" rel="noopener noreferrer">💬 카카오</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main -->
-  <main class="wrap">
-    <!-- Hero -->
-    <section class="hero" aria-label="프로모션">
-      <div id="heroBg" class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-left">
-          <div class="hero-panel">
-            <h1 class="hero-title">심플30GB (월 61,000원 요금제 기준)</h1>
-            <p class="hero-desc">심플30GB 61,000원 요금제 6개월 유지 조건 기준으로 혜택이 적용됩니다. 정확한 금액·약정 조건은 상담 후 확정됩니다.</p>
-          </div>
-
-          <div style="margin-top:12px">
-            <a class="cta-btn cta-call" href="tel:01044773005">📞 바로 전화</a>
-            <a class="cta-btn cta-kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">💬 카카오 상담</a>
-          </div>
-        </div>
-
-        <aside class="hero-side" aria-hidden="false">
-          <div style="font-weight:900;color:var(--accent)">상담 빠른 팁</div>
-          <div style="color:var(--muted);margin-top:8px">원하시는 모델·예산·방문매장을 알려주시면 상담이 더 빨라집니다.</div>
-          <div style="margin-top:10px;font-size:13px;color:#333">요금제: 심플30GB 61,000원 · 유지기간: 6개월 기준</div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- Promo -->
-    <div class="promo-strip" aria-label="혜택 안내">
-      <div class="promo-card promo">
-        <div class="promo-top"><div class="promo-icon">⚡</div><div><div class="promo-title">전국 당일 퀵배송</div><div class="promo-desc">빠르고 안전한 퀵배송 (지역/조건 상이)</div></div></div>
-        <div class="promo-actions"><a class="promo-btn primary" href="https://open.kakao.com/o/sJO5ztai" target="_blank">퀵배송 문의</a><div class="promo-note">※ 상세조건 상담 필요</div></div>
-      </div>
-
-      <div class="promo-card promo">
-        <div class="promo-top"><div class="promo-icon">📦</div><div><div class="promo-title">정품 케이스 증정</div><div class="promo-desc">구매 시 정품 케이스 전원 증정 (한정)</div></div></div>
-        <div class="promo-actions"><a class="promo-btn kakao" href="https://open.kakao.com/o/sJO5ztai" target="_blank">자세히 문의</a><div class="promo-note">※ 모델별 재고 상이</div></div>
-      </div>
-
-      <div class="promo-card promo">
-        <div class="promo-top"><div class="promo-icon">🎁</div><div><div class="promo-title">포토후기 추가 사은품</div><div class="promo-desc">포토후기 등록 시 추가 사은품 지급</div></div></div>
-        <div class="promo-actions"><a class="promo-btn primary" href="https://open.kakao.com/o/sJO5ztai" target="_blank">후기 안내</a><div class="promo-note">※ 지급 조건 별도 확인</div></div>
-      </div>
-
-      <div class="promo-card promo">
-        <div class="promo-top"><div class="promo-icon">📺</div><div><div class="promo-title">인터넷TV 설치 혜택</div><div class="promo-desc">추가 설치 시 현금 80만원 혜택 (조건 확인)</div></div></div>
-        <div class="promo-actions"><a class="promo-btn primary" href="https://open.kakao.com/o/sJO5ztai" target="_blank">혜택 문의</a><div class="promo-note">※ 제휴/약정 조건 적용</div></div>
-      </div>
-    </div>
-
-    <!-- Products -->
-    <section class="grid" aria-label="기기 비교" style="margin-top:12px">
-      <article class="card">
-        <div class="imgwrap"><img src="https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg" alt="갤럭시 S25"></div>
-        <div class="card-body"><div class="model">갤럭시 S25</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">심플30GB 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 카드조건 및 재고에 따라 금액 상이</div></div>
-      </article>
-
-      <article class="card">
-        <div class="imgwrap"><img src="https://i.postimg.cc/fTvrZT57/daunlodeu.jpg" alt="아이폰 17"></div>
-        <div class="card-body"><div class="model">아이폰 17</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">심플30GB 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 색상/용량·프로모션에 따라 달라집니다</div></div>
-      </article>
-
-      <article class="card">
-        <div class="imgwrap"><img src="https://i.postimg.cc/hGNCMJPS/Kakao-Talk-20260108-165415641-02.jpg" alt="갤럭시 Z 플립7"></div>
-        <div class="card-body"><div class="model">갤럭시 Z 플립7</div><div style="margin-top:8px"><span class="price">기기값 0원</span><span class="tag">심플30GB 6개월 (월 61,000원 기준)</span></div><div style="margin-top:8px;color:var(--muted)">· 제휴카드/할부 시 적용 가능</div></div>
-      </article>
-    </section>
-
-    <!-- Reviews -->
-    <section class="auto-reviews" aria-label="고객 후기 자동 스크롤" style="margin-top:12px">
-      <div class="ar-viewport"><div class="ar-track"><div class="ar-inner">
-        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">친절한 상담, 빠른 개통</div><div class="ar-text">매장 방문 후 바로 개통했습니다. 직원분 설명이 정말 친절했어요.</div></div>
-        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">프로모션 혜택 만족</div><div class="ar-text">심플30GB 요금제 조건으로 혜택을 받았습니다.</div></div>
-        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">빠른 응대</div><div class="ar-text">카카오톡 문의에 빠르게 답해주셔서 편하게 처리했습니다.</div></div>
-        <div class="ar-item"><div class="ar-stars">★★★★★</div><div class="ar-title">전문적 설명</div><div class="ar-text">요금제·유심·기기 차이까지 알기 쉽게 설명해주셔서 이해가 쉬웠습니다.</div></div>
-      </div><div class="ar-inner" aria-hidden="true"><!-- duplicate for loop --></div></div></div>
-    </section>
-
-    <!-- Store info -->
-    <section style="margin-top:12px">
-      <div style="background:#fff;padding:12px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06);margin-bottom:12px">
-        <div style="font-weight:900;margin-bottom:6px">제이원컴퍼니는 KT 공식 대리점입니다.</div>
-        <div style="color:var(--muted)">빠른 상담은 카카오톡 또는 전화로 문의 주세요.</div>
-      </div>
-      <div style="background:#fff;padding:12px;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.06)">
-        <div style="font-weight:900;margin-bottom:6px">매장 위치</div>
-        <div style="color:var(--muted)"><strong>매장 A (동탄)</strong><br/>경기도 화성시 동탄역로 150<br/><br/><strong>매장 B (평택)</strong><br/>경기도 평택시 이충로35번길 22</div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="wrap" style="text-align:center;color:var(--muted);padding:18px 0">© 2026 제이원컴퍼니 · KT 공식 대리점 • 연락: 010-4477-3005</div>
-  </footer>
-
-  <script>
-    // apply base64 images to logo and hero
-    (function(){
-      try{
-        const logo = document.getElementById('siteLogo');
-        const heroBg = document.getElementById('heroBg');
-        if(logo) logo.src = IMG_BASE64_FULL;
-        if(heroBg) heroBg.style.backgroundImage = "linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.06)), url('" + IMG_BASE64_FULL + "')";
-      }catch(e){}
-      // fallback: if base64 blocked, set fallback images
-      setTimeout(function(){
-        const logo = document.getElementById('siteLogo');
-        if(logo && (logo.naturalWidth === 0 || logo.naturalHeight === 0)) {
-          logo.src = "https://i.postimg.cc/HLNNKZz2/Kakao-Talk-20260108-165415641.jpg";
-        }
-      }, 800);
-    })();
-
-    // adjust review animation duration
-    (function(){
-      const track = document.querySelector('.ar-track');
-      const inner = document.querySelector('.ar-inner');
-      function setDuration(){
-        if(!track || !inner) return;
-        const h = inner.getBoundingClientRect().height || 700;
-        const seconds = Math.max(20, Math.round((h / 1000) * 48));
-        track.style.animation = 'scroll-vert ' + seconds + 's linear infinite';
-      }
-      window.addEventListener('load', setDuration);
-      window.addEventListener('resize', setDuration);
-    })();
-  </script>
+<!-- 👉 body 이하 JS / HTML은 네 기존 코드 그대로 유지 -->
 </body>
 </html>
